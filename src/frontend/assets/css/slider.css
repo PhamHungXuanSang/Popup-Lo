@@ -124,6 +124,12 @@
         object-fit: contain;
     }
 
+    .template-title {
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+    }
+
     .template-content {
         height: 600px;
     }
@@ -132,6 +138,12 @@
 @media only screen and (max-width: 767px) {
     .obj-fit-contain {
         object-fit: contain;
+    }
+
+    .template-title {
+        font-size: 24px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
     }
 
     .template-content {
