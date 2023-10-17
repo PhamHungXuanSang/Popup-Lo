@@ -29,39 +29,40 @@
             Test form 2
         </div>
     </div>
+    <script type="module" src="https://tnhanbeehexa.github.io/saas/src/core/core.js"></script>
     <script type="module" src="../core/core.js"></script>
     <script type="module">
         import Popup from '../core/core.js';
         const config = {
             selector: '.popup',
-            // design: {
-            //     setPosition: {
-            //         Test: 'position'
-            //     }
-            // },
+            design: {
+                setPosition: {
+                    Test: 'position'
+                },
+            },
             condition: {
                 existClass: {
-                    enable: true,
+                    enable: false,
                     className: 'my-popup'
                 },
                 existCookie: {
-                    enable: true,
+                    enable: false,
                     cname: 'popup'
                 }
             },
             trigger: {
-                // scrollPage: {
-                //     enable: true,
-                //     height: 100
-                // },
+                scrollPage: {
+                    enable: true,
+                    height: 100
+                },
                 showAfter: {
                     enable: true,
                     seconds: 3000,
                 },
-                // closeAfter: {
-                //     enable: true,
-                //     seconds: 2000
-                // }
+                closeAfter: {
+                    enable: true,
+                    seconds: 2000
+                }
             }
         }
         const popup = new Popup(config);
