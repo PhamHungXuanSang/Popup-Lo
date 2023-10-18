@@ -12,6 +12,7 @@ function setOverlay (config) {
             } else if(document.querySelector(config.selector).style.display != "block") {
                 let overlay = document.querySelector('.overlay');
                 overlay ? document.querySelector('body').removeChild(overlay) : "";
+                open = false;
             }
         }, 100);
     }
