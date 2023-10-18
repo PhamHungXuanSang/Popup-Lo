@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="../../Saas_Popup/src/core/core.css">
+</head>
+
+<body class="my-popup">
+    <div class="form my-popup popup" id="popup" style="display: none">
+        <div class="form__inner">
+            <button class="form-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="form__left">
+                <h1>SPRING SALE</h1>
+                <div class="form__left-sale">
+                    <p>40%</p>
+                    <p>OFF</p>
+                </div>
+            </div>
+
+            <div class="form__right">
+                <p class="form__right-header">ENTER EMAIL BELOW TO UNLOCK</p>
+
+                <div class="form__right-input">
+                    <input type="email" placeholder="enter email address">
+                </div>
+
+                <div class="form__right-check">
+                    <input id="check" type="checkbox">
+                    <label for="check">Yes, i'd like to receive news and special offers.</label>
+                </div>
+
+                <button class="btn-get">GET MY 40% OFF</button>
+
+                <button class="btn-no">NO THANKS</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../../Saas_Popup//src/core/core.js"></script>
+    <script type="module">
+        import Popup from '../../Saas_Popup//src/core/core.js';
+        const config = {
+            selector: '.popup',
+            design: {
+                setPosition: {
+                    enable: true,
+                    className: '.popup',
+                    x: 'center',
+                    y: 'middle',
+                    width: 1000,
+                    height: 500,
+                },
+                setOverlay: {
+                    enable: true,
+                    selector: '.popup',
+                }
+            },
+            condition: {
+                existClass: {
+                    enable: true,
+                    className: 'my-popup'
+                },
+                // existCookie: {
+                //     enable: true,
+                //     cname: 'popup'
+                // }
+            },
+            trigger: {
+                scrollPage: {
+                    enable: true,
+                    height: 100,
+                    selector: '.popup',
+                },
+                // showAfter: {
+                //     enable: true,
+                //     seconds: 3000,
+                //     selector: '.popup',
+                // },
+                // closeAfter: {
+                //     enable: true,
+                //     seconds: 2000
+                // }
+            }
+        }
+        const popup = new Popup(config);
+    </script>
+</body>
+
+</html>

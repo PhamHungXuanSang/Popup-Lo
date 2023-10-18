@@ -1,0 +1,34 @@
+{
+    "selector": "my-popup",
+    "enable": true,
+    "name": "",
+    "design": {
+        "setPosition": {
+            "enable": true,
+            "className": ".popup",
+            "x": "Right",
+            "y": "Top"
+        }
+    },
+    "trigger": {
+        "scrollPage": {
+            "enable": false,
+            "height": ""
+        },
+        "showAfter": {
+            "enable": false,
+            "seconds": "000"
+        },
+        "closeAfter": {
+            "enable": false,
+            "seconds": 2000
+        }
+    },
+    "condition": {
+        "existClass": {
+            "enable": true,
+            "className": "my-popup"
+        }
+    },
+    "template": "none"
+}
