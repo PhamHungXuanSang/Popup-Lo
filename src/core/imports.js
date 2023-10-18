@@ -5,6 +5,7 @@ import existCookie from '../module/conditions/existCookie.js';
 // import design
 import setOverlay from '../module/designs/overlay.js';
 import setPosition from '../module/designs/position.js';
+import setSize from '../module/designs/size.js';
 // import triggers
 import closeAfter from '../module/triggers/closeAfterXSeconds.js';
 import showAfter from '../module/triggers/showAfterXSeconds.js';
@@ -16,6 +17,7 @@ export default {
     existCookie,
     setOverlay,
     setPosition,
+    setSize,
     closeAfter,
     showAfter,
     scrollPage

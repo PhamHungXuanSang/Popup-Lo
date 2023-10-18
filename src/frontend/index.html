@@ -28,20 +28,12 @@
     <div id="root">
         
     </div>
-    <div class="overlay" id="overlay" style="position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);">
-
-    </div>
     <div id="popup" class="my-popup popup"  style="display: none;">
         <div class="popup-content">
-          <span class="close" onclick="closePopup()">&times;</span>
-          <img src="./assets/image/css.jpg" alt="Popup Ad" width="300" height="200">
-          <p class="popup-desc">This is a popup ad. Click the button below to close.</p>
-          <button class="btn-popup" onclick="closePopup()">Close</button>
+          <!-- <span class="close" onclick="closePopup()">&times;</span> -->
+          <img src="https://bizweb.dktcdn.net/100/242/347/files/cach-chup-anh-the-dep-1.jpg?v=1685522537779" alt="Popup Ad" width="300" height="200">
+          <p class="popup-desc">This is a popup ad.</p>
+          <!-- <button class="btn-popup" onclick="closePopup()">Close</button> -->
         </div>
     </div>
 
@@ -53,15 +45,18 @@
         const config = {
             selector: '.popup',
             design: {
-                // setPosition: {
-                //     enabled: true,
-                //     className: '.popup',
-                //     x: 'left',
-                //     y: 'bottom'
-                // },
+                setPosition: {
+                    enable: true,
+                    className: '.popup',
+                    x: 'center',
+                    y: 'middle',
+                },
+                setSize: {
+                    width: 800,
+                    height: 400,
+                },
                 setOverlay: {
-                    enabled: true,
-
+                    enable: true,
                 }
             },
             condition: {
@@ -83,14 +78,14 @@
                     enable: true,
                     height: 100
                 },
-                // showAfter: {
-                //     enable: true,
-                //     seconds: 3000,
-                // },
-                // closeAfter: {
-                //     enable: true,
-                //     seconds: 2000
-                // }
+                showAfter: {
+                    enable: true,
+                    seconds: 3000,
+                },
+                closeAfter: {
+                    enable: true,
+                    seconds: 2000
+                }
             }
         }
         const popup = new Popup(config);
