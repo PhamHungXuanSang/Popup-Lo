@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="ExamPopup.css">
+        <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
+        <title>Demo Function Form</title>
+    </head>
+    <body class="saas-popup">
+        <div id="root">
+            <button class="activePopup">Click me</button>
+            <div class="form-popup closeXSecondsPopup showXSecondsPopup afterViewXPage onClickShowPopup closeClickPopup scrollPopup overlayPopup" style="display: none;">
+                <form action="/action_page.php" class="form-container">
+                    <h1>Login</h1>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel btnClosePopup">Close</button>
+                </form>
+            </div>
+        </div>
+
+        <script type="module" src="../../src/core/Popup.js"></script>
+        <script type="module">
+            import Popup from "../../src/core/Popup.js";
+
+            const config = {
+                enable: true,
+                functionName: "Popup-form",
+                namePopup: "Test-saas-popup",
+                condition: {
+                    existClass: {
+                        enable: true,
+                        className: 'saas-popup'
+                    }
+                },
+                behaviors: {
+                    open: {
+                        scrollToXPercent: {
+                            enable: true,
+                            percent: 100,
+                            className: '.scrollPopup'
+                        }, 
+                        visitWebAfterXSeconds: {
+                            enable: false,
+                            seconds: 3000,
+                            className: '.showXSecondsPopup'
+                        },
+                        onClickItem: {
+                            enable: false,
+                            classNameButton: '.activePopup',
+                            className: '.onClickShowPopup'
+                        },
+                        afterViewXpage: {
+                            enable: false,
+                            className: '.afterViewXPage',
+                            NumPage: 3
+                        }
+                    },
+                    close: {
+                        closeAfterXSeconds: {
+                            enable: false,
+                            seconds: 5000,
+                            className: '.closeXSecondsPopup'
+                        },
+                        closeClickButton: {
+                            enable: true,
+                            classNameButton: '.btnClosePopup',
+                            className: '.closeClickPopup'
+                        }
+                    }
+                },
+                design: {
+                    // overlay: {
+                    //     enable: true,
+                    //     className: '.overlayPopup',
+                    // }
+                }
+            };
+
+            const popup = new Popup(config);
+        </script>
+    </body>
+</html>
