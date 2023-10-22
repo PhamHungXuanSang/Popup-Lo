@@ -1,10 +1,21 @@
 "use strict";
 
+
 const onClickItem = (config) => {
     if (config.enable == true) {
-        document.querySelector(config.classNameButton).onclick = () => {
-            const elementOnClickItem = document.querySelector(config.className);
-            elementOnClickItem.classList.add("active");
+        let elements = document.querySelectorAll(config.classNameButton);
+        if(elements.length == 1) {
+            elements.onclick = () => {
+                const elementOnClickItem = document.querySelector(config.className);
+                elementOnClickItem.classList.add("active");
+            }
+        } else {
+            for(let i=0; i<elements.length; i++) {
+                elements[i].onclick = () => {
+                    const elementOnClickItem = document.querySelector(config.className);
+                    elementOnClickItem.classList.add("active");
+                }
+            }
         }
     }
 }

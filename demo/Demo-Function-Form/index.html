@@ -7,19 +7,38 @@
         <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
         <title>Demo Function Form</title>
     </head>
-    <body>
+    <body style="height: 2000px;">
         <div id="root">
             <button class="activePopup">Click me</button>
-            <div class="form-popup closeXSecondsPopup showXSecondsPopup afterViewXPage onClickShowPopup closeClickPopup scrollPopup overlayPopup" style="display: none;">
-                <form action="/action_page.php" class="form-container">
-                    <h1>Login</h1>
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel btnClosePopup">Close</button>
-                </form>
+        </div>
+        <!-- <div class="my-popup form-popup closeXSecondsPopup showXSecondsPopup afterViewXPage onClickShowPopup closeClickPopup scrollPopup overlayPopup" style="display: none;">
+            <form action="/action_page.php" class="form-container">
+                <h1>Login</h1>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel btnClosePopup">Close</button>
+            </form>
+        </div> -->
+        <button class="activePopup">Click me 2</button>
+
+        <div class="my-popup form-popup closeXSecondsPopup showXSecondsPopup afterViewXPage onClickShowPopup closeClickPopup scrollPopup overlayPopup" style="display: none; position: fixed;">
+            <div class="popup">
+                <div class="img-wrapper"><img src="https://images.pexels.com/photos/5723981/pexels-photo-5723981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Anh"></div>
+                <div class="content">
+                    <p class="popup-heading">Save up to</p>
+                    <h1 class="popup-offer">30% OFF</h1>
+                    <p class="popup-desc">In your next holiday offer</p>
+    
+                    <form action="POST" class="popup-form">
+                        <input class="email" type="email" placeholder="Please enter your email">
+                        <input class="submit" type="button" value="Get it now">
+                    </form>
+    
+                    <button class="refuse btnClosePopup">No, thanks</button>
+                </div>
             </div>
         </div>
 
@@ -31,10 +50,9 @@
                 behaviors: {
                     open: {
                         scrollToXPercent: {
-                            enable: true,
-                            percent: 100,
+                            enable: false,
+                            percent: 80,
                             className: '.scrollPopup',
-                             
                         }, 
                         visitWebAfterXSeconds: {
                             enable: false,
@@ -42,7 +60,7 @@
                             className: '.showXSecondsPopup'
                         },
                         onClickItem: {
-                            enable: false,
+                            enable: true,
                             classNameButton: '.activePopup',
                             className: '.onClickShowPopup'
                         },
@@ -54,8 +72,8 @@
                     },
                     close: {
                         closeAfterXSeconds: {
-                            enable: false,
-                            seconds: 5000,
+                            enable: true,
+                            seconds: 3000,
                             className: '.closeXSecondsPopup'
                         },
                         closeClickButton: {
@@ -66,10 +84,17 @@
                     }
                 },
                 design: {
+                    position: {
+                        width: 400,
+                        height: 300,
+                        x: 'left:50',
+                        y: 'top:0',
+                        className: '.my-popup',
+                    },
                     overlay: {
                         enable: true,
                         className: '.overlayPopup',
-                    }
+                    },
                 }
             };
 

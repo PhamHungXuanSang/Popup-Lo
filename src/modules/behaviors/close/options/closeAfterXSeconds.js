@@ -1,17 +1,28 @@
 "use strict";
 
 const closeAfterXSeconds = (config) => {
-    console.log(config);
-    // if (config.trigger.showAfter.enable == false)
-    //     config.trigger.showAfter.seconds = 0;
-    // const seconds = config.trigger.showAfter.seconds + config.trigger.closeAfter.seconds;
-    const seconds = config.seconds;
-    // console.log(seconds);
-    if (config.enable === true) {
-        setTimeout(() => {
-            const elementClosePopup =  document.querySelector(config.className);
-            elementClosePopup.classList.add('closePopup');
-        }, seconds);
+    if(config.enable == false) {
+        const observer = new MutationObserver(mutations => {
+            let run = true;
+            let timeoutId;
+            mutations.forEach(mutation => {
+                if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                    if (document.querySelector(config.className).classList.contains("active") && run === true) {
+                        timeoutId = setTimeout(() => {
+                            const elementClosePopup =  document.querySelector(config.className);
+                            elementClosePopup.classList.remove("active");
+                            run == false;
+                        }, config.seconds);
+                    } else {
+                        clearTimeout(timeoutId);
+                    }
+                }
+            })
+        })
+    
+        observer.observe(document.querySelector(config.className), {
+            attributes: true,
+        });
     }
 }
 

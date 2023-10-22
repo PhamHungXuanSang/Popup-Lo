@@ -6,7 +6,7 @@ const closeClickButton = (config) => {
         const elementBTNClosePopup = document.querySelector(config.classNameButton);
         elementBTNClosePopup.onclick = () => {
             const elementPopup =  document.querySelector(config.className);
-            elementPopup.classList.add('closePopup');
+            elementPopup.classList.remove("active");
         }
     }
 }

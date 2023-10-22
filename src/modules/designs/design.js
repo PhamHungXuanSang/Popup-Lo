@@ -12,7 +12,7 @@ class designPopup {
     init () {
         const process = new core();
         console.log(this.options);
-        const methods = ['overlay'];
+        const methods = ['overlay', 'position'];
         process.readConfig(this.options, methods, register);
     }
 }
