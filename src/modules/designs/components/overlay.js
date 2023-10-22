@@ -25,5 +25,4 @@ function overlay(config) {
       });
     }
   }
-
 export default overlay;

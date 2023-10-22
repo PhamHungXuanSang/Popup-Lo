@@ -13,10 +13,16 @@ class behaviours {
     }
     
     init () {
+<<<<<<< HEAD
         const  activePopup = new open(this.optionOpen);
         console.log(activePopup);
         if (activePopup.isOpenPopup() == true)
             new closePopup(this.optionClose);
+=======
+        const activePopup = new open(this.optionOpen);
+        console.log(activePopup);
+        new closePopup(this.optionClose);
+>>>>>>> fix-core-221023
     }
 };
 

@@ -9,14 +9,28 @@ class core {
     readConfig (config, methods, register) {
         console.log(config);
         var flag = false;
+// <<<<<<< HEAD
+//         methods.forEach((method) => {
+//             console.log(config[method]);
+//             if (config[method] !== undefined) {
+//                 register[method](config[method]);
+//                 flag = true;
+//             }
+//         });
+//         return flag;
+// =======
+        var checked = false;
         methods.forEach((method) => {
-            console.log(config[method]);
             if (config[method] !== undefined) {
-                register[method](config[method]);
-                flag = true;
+                const active = register[method](config[method]);
+                console.log("Test: " + active);
+                if (active == true) {
+                    checked = true;
+                }
             }
         });
-        return flag;
+        return checked;
+// >>>>>>> fix-core-221023
     }
 };
 

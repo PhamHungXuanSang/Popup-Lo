@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
         <title>Demo Function Form</title>
     </head>
-    <body style="height: 2000px;">
+    <body class="saas-popup" style="height: 2000px;">
         <div id="root">
             <button class="activePopup">Click me</button>
         </div>
@@ -39,14 +39,21 @@
     
                     <button class="refuse btnClosePopup">No, thanks</button>
                 </div>
-            </div>
-        </div>
 
         <script type="module" src="../../src/core/Popup.js"></script>
         <script type="module">
             import Popup from "../../src/core/Popup.js";
 
             const config = {
+                enable: true,
+                functionName: "Popup-form",
+                namePopup: "Test-saas-popup",
+                condition: {
+                    existClass: {
+                        enable: true,
+                        className: 'saas-popup'
+                    }
+                },
                 behaviors: {
                     open: {
                         scrollToXPercent: {
@@ -60,7 +67,7 @@
                             className: '.showXSecondsPopup'
                         },
                         onClickItem: {
-                            enable: true,
+                            enable: false,
                             classNameButton: '.activePopup',
                             className: '.onClickShowPopup'
                         },

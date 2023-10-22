@@ -1,30 +1,27 @@
-"use strict";
+'use strict';
 
 import register from "./register.js";
-import core from "../../../core/core.js";
+import core from "../../core/core.js";
 
-class open {
-
+class condition {
     constructor(options) {
         this.options = options; 
         this.init();
     }
 
     init () {
+        const process = new core();
         console.log(this.options);
-        this.isOpenPopup();
+        const methods = ['existClass'];
+        process.readConfig(this.options, methods, register);
     }
 
-    isOpenPopup () {
+    getStatus () {
         const process = new core();
-        const methods = ['scrollToXPercent', 'visitWebAfterXSeconds', 'onClickItem', 'afterViewXPage'];
-<<<<<<< HEAD
-=======
+        const methods = ['existClass'];
         console.log(process.readConfig(this.options, methods, register));
->>>>>>> fix-core-221023
         return process.readConfig(this.options, methods, register);
     }
 };
 
-
-export default open;
+export default condition;

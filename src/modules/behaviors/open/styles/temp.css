@@ -2,7 +2,6 @@
     position: absolute;
     z-index: 10 !important;
 }
-
 .active {
     display: block !important;
 }
