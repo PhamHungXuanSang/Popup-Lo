@@ -1,7 +1,7 @@
 "use strict";
 
 const closeAfterXSeconds = (config) => {
-    if(config.enable == false) {
+    if(config.enable == true) {
         const observer = new MutationObserver(mutations => {
             let run = true;
             let timeoutId;

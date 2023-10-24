@@ -1,11 +1,10 @@
 "use strict";
 
-
 const onClickItem = (config) => {
     if (config.enable == true) {
         let elements = document.querySelectorAll(config.classNameButton);
         if(elements.length == 1) {
-            elements.onclick = () => {
+            elements[0].onclick = () => {
                 const elementOnClickItem = document.querySelector(config.className);
                 elementOnClickItem.classList.add("active");
             }

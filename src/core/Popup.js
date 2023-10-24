@@ -3,6 +3,7 @@
 import behaviors from "../modules/behaviors/behaviors.js";
 import condition from "../modules/conditions/condition.js";
 import designPopup from "../modules/designs/design.js";
+import animations from "../modules/animations/animation.js";
 
 class Popup {
     constructor(userconfig) {
@@ -14,8 +15,10 @@ class Popup {
         const Conditions = new condition(this.config.condition);
         Conditions.getStatus();
         if (Conditions.getStatus() === true) {
-            new behaviors(this.config.behaviors);
-            new designPopup(this.config.design);
+            const animation = new animations(this.config.animations);
+            const behavior = new behaviors(this.config.behaviors);
+            //behavior.get(animation.get());
+            const design = new designPopup(this.config.design);
         }
     }
 };

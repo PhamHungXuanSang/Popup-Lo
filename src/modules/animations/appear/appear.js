@@ -3,7 +3,7 @@
 import register from "./register.js";
 import core from "../../../core/core.js";
 
-class open {
+class appear {
 
     constructor(options) {
         this.options = options; 
@@ -17,14 +17,12 @@ class open {
 
     isOpenPopup () {
         const process = new core();
-        const methods = ['scrollToXPercent', 'visitWebAfterXSeconds', 'onClickItem', 'afterViewXPage'];
-// <<<<<<< HEAD
-// =======
+        const methods = ['slideFromTop', 'horizontalMove', 'zoomIn'];
+        
         console.log(process.readConfig(this.options, methods, register));
-// >>>>>>> fix-core-221023
         return process.readConfig(this.options, methods, register);
     }
 };
 
 
-export default open;
+export default appear;
