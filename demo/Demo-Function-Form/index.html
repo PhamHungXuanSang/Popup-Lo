@@ -52,31 +52,31 @@
                         enable: false,
                         percent: 80, // int
                         className: '.scrollPopup',
-                    }, 
+                    },
                     visitWebAfterXSeconds: {
                         enable: false,
                         seconds: 3000, // int
                         className: '.showXSecondsPopup'
                     },
                     onClickItem: {
-                        enable: true,
+                        enable: false,
                         classNameButton: '.activePopup',
                         className: '.onClickShowPopup'
                     },
-                    afterViewXpage: {
-                        enable: false,
+                    afterViewXPage: {
+                        enable: true,
                         className: '.afterViewXPage',
-                        NumPage: 3, // int
+                        NumPage: 1, // int
                     }
                 },
                 close: {
                     closeAfterXSeconds: {
-                        enable: false,
+                        enable: true,
                         seconds: 3000, // int
                         className: '.closeXSecondsPopup'
                     },
                     closeClickButton: {
-                        enable: true,
+                        enable: false,
                         classNameButton: '.btnClosePopup',
                         className: '.closeClickPopup'
                     }
@@ -97,7 +97,7 @@
             },
             animations: {
                 appear: {
-                    enableAnimation: false,
+                    enableAnimation: true,
                     moveFromTop: {
                         enable: true,
                         duration: 400, // int

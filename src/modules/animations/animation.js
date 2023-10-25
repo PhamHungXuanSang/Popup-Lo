@@ -11,11 +11,6 @@ class animations {
 
         this.init();
     }
-
-    // get() { // Lấy ra giá trị xong/chưa
-    //     console.log("Zoooooooooooooooooooooo");
-    //     console.log(this.optionDisAppear.zoomOut);
-    // }
     
     init () {
         new appear(this.optionAppear);

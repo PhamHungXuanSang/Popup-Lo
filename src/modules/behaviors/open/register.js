@@ -8,5 +8,6 @@ import afterViewXPage from "./options/afterViewXPage.js";
 export default {
     scrollToXPercent,
     visitWebAfterXSeconds,
-    onClickItem
+    onClickItem,
+    afterViewXPage
 };
