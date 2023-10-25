@@ -1,10 +1,11 @@
 "use strict";
 
-const closeClickButton = (config) => {
+const closeClickButton = (config, keyPopup) => {
     if (config.enable === true) {
-        const elementBTNClosePopup = document.querySelector(config.classNameButton);
+        const eKeyPopup = document.querySelector(`.${keyPopup}`);
+        const elementBTNClosePopup = eKeyPopup.querySelector('.btnClosePopup');
         elementBTNClosePopup.onclick = () => {
-            const elementPopup =  document.querySelector(config.className);
+            const elementPopup = eKeyPopup.querySelector('.closeClickPopup');
             elementPopup.classList.remove('active');
         }
         return true;

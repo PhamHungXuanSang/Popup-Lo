@@ -4,18 +4,16 @@ import closePopup from "./close/close.js";
 import open from "./open/open.js";
 
 class behaviours {
-
-    constructor (behaConfig) {
+    constructor (behaConfig, keyPopup) {
         this.optionOpen = behaConfig.open;
         this.optionClose = behaConfig.close;
-
+        this.keyPopup = keyPopup;
         this.init();
     }
     
     init () {
-        const activePopup = new open(this.optionOpen);
-        //console.log(activePopup);
-        new closePopup(this.optionClose);
+        new open(this.optionOpen, this.keyPopup);
+        new closePopup(this.optionClose, this.keyPopup);
     }
 };
 

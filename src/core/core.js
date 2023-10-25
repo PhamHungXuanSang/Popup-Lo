@@ -6,14 +6,13 @@ class core {
         this.config = userconfig;
     } 
 
-    readConfig (config, methods, register) {
-        //console.log(config);
+    readConfig (config, methods, register, keyPopup) {
+        console.log(config);
         var flag = false;
         var checked = false;
         methods.forEach((method) => {
             if (config[method] !== undefined) {
-                const active = register[method](config[method]);
-                //console.log("Test: " + active);
+                const active = register[method](config[method], keyPopup);
                 if (active == true) {
                     checked = true;
                 }

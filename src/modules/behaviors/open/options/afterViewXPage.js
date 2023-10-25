@@ -1,18 +1,18 @@
 "use strict";
 
-const afterViewXPage = (config) => {
-    console.log("hello");
+const afterViewXPage = (config, keyPopup) => {
     if (config.enable == true) {
         console.log("hello");
-        var pageViews = window.localStorage.getItem('pageViews');
+        var pageViews = localStorage.getItem(`${keyPopup}`);
 
-        if (pageViews === null) {
-            pageViews = 0;
+        if (pageViews == null) {
+            pageViews = -1;
         }
         pageViews++;
-        window.localStorage.setItem('pageViews', pageViews);
+        localStorage.setItem(`${keyPopup}`, pageViews);
         if (pageViews == config.NumPage) {
-            const elementViewXPage = document.querySelector(config.className);
+            const ekeyPopup = document.querySelector(`.${keyPopup}`);
+            const elementViewXPage = ekeyPopup.querySelector('.afterViewXPage');
             elementViewXPage.classList.add('active');
             return true;
         }

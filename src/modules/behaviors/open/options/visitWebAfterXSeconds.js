@@ -1,6 +1,6 @@
 'use strict';
 
-const visitWebAfterXSeconds = (config) => {
+const visitWebAfterXSeconds = (config, keyPopup) => {
     if (config.enable == true) {
         window.onload = () => {
             setTimeout(() => {

@@ -1,22 +1,17 @@
 "use strict";
 
-const onClickItem = (config) => {
+const onClickItem = (config, keyPopup) => {
     if (config.enable == true) {
-        let elements = document.querySelectorAll(config.classNameButton);
-        if(elements.length == 1) {
-            elements[0].onclick = () => {
-                const elementOnClickItem = document.querySelector(config.className);
-                elementOnClickItem.classList.add("active");
-            }
-        } else {
-            for(let i=0; i<elements.length; i++) {
-                elements[i].onclick = () => {
-                    const elementOnClickItem = document.querySelector(config.className);
-                    elementOnClickItem.classList.add("active");
-                }
-            }
+        console.log("Remove: " + keyPopup);
+        document.querySelector(`.btn${keyPopup}`).onclick = () => {
+            console.log("Đã kích hoạt");
+            const elementOnClickItem = document.querySelector(`.${keyPopup}`);
+            const onClickShowPopup =  elementOnClickItem.querySelector('.onClickShowPopup');
+            onClickShowPopup.classList.add("active");
+            return true;
         }
     }
+    return false;
 }
 
 export default onClickItem;
