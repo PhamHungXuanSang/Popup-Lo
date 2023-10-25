@@ -1,16 +1,29 @@
 "use strict";
 
 const closeAfterXSeconds = (config) => {
-    console.log(config);
-    if (config.enable === true) {
-        const seconds = config.seconds;
-        setTimeout(() => {
-            const elementClosePopup =  document.querySelector(config.className);
-            elementClosePopup.classList.add('closePopup');
-        }, seconds);
-        return true;
+    if(config.enable == true) {
+        const observer = new MutationObserver(mutations => {
+            let run = true;
+            let timeoutId;
+            mutations.forEach(mutation => {
+                if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                    if (document.querySelector(config.className).classList.contains("active") && run === true) {
+                        timeoutId = setTimeout(() => {
+                            const elementClosePopup =  document.querySelector(config.className);
+                            elementClosePopup.classList.remove("active");
+                            run == false;
+                        }, config.seconds);
+                    } else {
+                        clearTimeout(timeoutId);
+                    }
+                }
+            })
+        })
+    
+        observer.observe(document.querySelector(config.className), {
+            attributes: true,
+        });
     }
-    return false;
 }
 
 export default closeAfterXSeconds;

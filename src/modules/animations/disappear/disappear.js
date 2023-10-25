@@ -1,9 +1,9 @@
 "use strict";
 
 import register from "./register.js";
-import core from "../../core/core.js";
+import core from "../../../core/core.js";
 
-class designPopup {
+class disappear {
     constructor(options) {
         this.options = options; 
         this.init();
@@ -11,11 +11,11 @@ class designPopup {
 
     init () {
         const process = new core();
-        console.log(this.options);
-        const methods = ['overlay', 'position'];
+        //console.log(this.options);
+        const methods = ['zoomOut', 'fadeOut'];
         process.readConfig(this.options, methods, register);
     }
 }
 
 
-export default designPopup;
+export default disappear;

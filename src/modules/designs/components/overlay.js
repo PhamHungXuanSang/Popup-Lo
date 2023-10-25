@@ -1,25 +1,28 @@
 'use strict';
 
-function overlay (config) {
+function overlay(config) {
     if (config.enable === true) {
-        let open = false;
-        console.log("Overlay config *");
-        console.log()
-        setInterval(() => {
-            if(document.querySelector(config.className).style.display == "block" && open == false) {
-                console.log("Overlay config");
-                let overlay = document.createElement('div');
-                overlay.classList.add('overlay');
-                document.querySelector('body').appendChild(overlay);
-                open = true;
-            } else if(document.querySelector(config.className).style.display != "block") {
-                // console.log(document.querySelector(config.selector).style.display);
-                let overlay = document.querySelector('.overlay');
-                overlay ? document.querySelector('body').removeChild(overlay) : "";
-                open = false;
+      let open = false;
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "attributes" && mutation.attributeName === "class") {
+            if (document.querySelector(config.className).classList.contains("active") && open === false) {
+              let overlay = document.createElement("div");
+              overlay.classList.add("overlay");
+              document.querySelector("body").appendChild(overlay);
+              open = true;
+            } else if (!document.querySelector(config.className).classList.contains("active")) {
+              let overlay = document.querySelector(".overlay");
+              overlay ? document.querySelector("body").removeChild(overlay) : "";
+              open = false;
             }
-        }, 100);
+          }
+        });
+      });
+  
+      observer.observe(document.querySelector(config.className), {
+        attributes: true,
+      });
     }
-}
-
+  }
 export default overlay;

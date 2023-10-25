@@ -1,12 +1,13 @@
 "use strict";
 
+
 const scrollToXPercent = (config, keyPopup) => {
     if (config.enable === true) {
         window.onscroll = () => {
             console.log(window.scrollY);
             activeScollPage();
         }
-
+        
         function checkSession () {
             if (sessionStorage.getItem(keyPopup) != null)
                 return true;

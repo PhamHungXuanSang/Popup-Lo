@@ -4,7 +4,6 @@ import register from "./register.js";
 import core from "../../../core/core.js";
 
 class open {
-
     constructor(options, keyPopup) {
         this.options = options;
         this.keyPopup = keyPopup; 
