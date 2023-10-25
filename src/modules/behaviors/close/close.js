@@ -11,7 +11,7 @@ class closePopup {
 
     init () {
         const process = new core();
-        console.log(this.options);
+        //console.log(this.options);
         const methods = ['closeAfterXSeconds', 'closeClickButton'];
         process.readConfig(this.options, methods, register);
     }

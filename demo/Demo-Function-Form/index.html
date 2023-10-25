@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="ExamPopup.css">
     <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
     <title>Demo Function Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="saas-popup" style="height: 2000px;">
     <div id="root">
@@ -32,167 +33,222 @@
         </div>
     </div>
 
-<script type="module" src="../../src/core/Popup.js"></script>
-<script type="module">
-  import Popup from "../../src/core/Popup.js";
-
-  const config = {
-    enable: true,
-    functionName: "Popup-form",
-    namePopup: "Test-saas-popup",
-    condition: {
-        existClass: {
+    <script type="module">
+        //import myJSON from 'https://static.staticsave.com/testjson/myjson.json' assert { type: "json" };
+        import Popup from '../../src/core/Popup.js';
+        const config = {
             enable: true,
-            className: 'saas-popup'
-        }
-    },
-    behaviors: {
-        open: {
-            scrollToXPercent: {
-                enable: false,
-                percent: 80,
-                className: '.scrollPopup',
-            }, 
-            visitWebAfterXSeconds: {
-                enable: false,
-                seconds: 3000,
-                className: '.showXSecondsPopup'
+            functionName: "Popup-form",
+            namePopup: "Test-saas-popup",
+            condition: {
+                existClass: {
+                    enable: true,
+                    className: 'saas-popup'
+                }
             },
-            onClickItem: {
-                enable: true,
-                classNameButton: '.activePopup',
-                className: '.onClickShowPopup'
+            behaviors: {
+                open: {
+                    scrollToXPercent: {
+                        enable: false,
+                        percent: 80, // int
+                        className: '.scrollPopup',
+                    }, 
+                    visitWebAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000, // int
+                        className: '.showXSecondsPopup'
+                    },
+                    onClickItem: {
+                        enable: true,
+                        classNameButton: '.activePopup',
+                        className: '.onClickShowPopup'
+                    },
+                    afterViewXpage: {
+                        enable: false,
+                        className: '.afterViewXPage',
+                        NumPage: 3, // int
+                    }
+                },
+                close: {
+                    closeAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000, // int
+                        className: '.closeXSecondsPopup'
+                    },
+                    closeClickButton: {
+                        enable: true,
+                        classNameButton: '.btnClosePopup',
+                        className: '.closeClickPopup'
+                    }
+                }
             },
-            afterViewXpage: {
-                enable: false,
-                className: '.afterViewXPage',
-                NumPage: 3
+            design: {
+                position: {
+                    width: 600, // int
+                    height: 450, // int
+                    x: 'center:0', // string
+                    y: 'top:5', // string
+                    className: '.my-popup',
+                },
+                overlay: {
+                    enable: true,
+                    className: '.overlayPopup',
+                },
+            },
+            animations: {
+                appear: {
+                    enableAnimation: false,
+                    moveFromTop: {
+                        enable: true,
+                        duration: 400, // int
+                        easing: "ease-in-out", // string
+                        movingLength: 10, // int????????????????????
+                        className: '.animationPopup',
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400, //int
+                        easing: "ease-in", // string
+                        movingFrom: 'right', // string
+                        movingLength: 10, // int????????????????????
+                        className: '.animationPopup',
+                    },
+                    zoomIn: {
+                        enable: false,
+                        duration: 300, // int
+                        easing: "linear", // string
+                        fromPercent: 80, // int????????????????????
+                        className: '.animationPopup',
+                    },
+                    fadeIn: {
+                        enable: false,
+                        duration: 200, // int
+                        easing: "ease-in", // string
+                        className: '.animationPopup',
+                    }
+                },
+                disappear: {
+                    enableAnimation: true,
+                    zoomOut: {
+                        enable: false,
+                        duration: 200, // int
+                        easing: "ease-out", // string
+                        className: '.animationPopup',
+                    },
+                    fadeOut: {
+                        enable: true,
+                        duration: 500, // int
+                        easing: "ease-out", // string
+                        className: '.animationPopup',
+                    },
+                },
             }
-        },
-        close: {
-            closeAfterXSeconds: {
-                enable: false,
-                seconds: 3000,
-                className: '.closeXSecondsPopup'
-            },
-            closeClickButton: {
-                enable: true,
-                classNameButton: '.btnClosePopup',
-                className: '.closeClickPopup'
-            }
-        }
-    },
-    design: {
-      position: {
-          width: 600,
-          height: 450,
-          x: 'left:10',
-          y: 'middle:0',
-          className: '.my-popup',
-      },
-      overlay: {
-          enable: true,
-          className: '.overlayPopup',
-      },
-    },
-    animations: {
-        appear: {
-            slideFromTop: {
-                enable: false,
-                duration: 400,
-                easing: "ease-out",
-                slidingLength: 200,
-                className: '.animationPopup',
-            },
-            horizontalMove: {
-                enable: true,
-                duration: 400,
-                easing: "ease-out",
-                movingFrom: 'right',
-                movingLength: 90,
-                className: '.animationPopup',
-            },
-            zoomIn: {
-                enable: false,
-                duration: 400,
-                easing: "linear",
-                fromPercent: 50,
-                className: '.animationPopup',
-            },
-        },
-        disappear: {
-            zoomOut: {
-                enable: false,
-                duration: 400,
-                easing: "ease-out",
-                className: '.animationPopup',
-            },
-        },
-    }
-  };
-//             const config = `{
-//   "selector": ".popup",
-//   "enable": true,
-//   "name": "",
-//   "design": {
-//     "position": {
-//       "width": "555",
-//       "height": "355",
-//       "x": "Right:15",
-//       "y": "Top:15",
-//       "className": ".my-popup"
-//     },
-//     "overlay": {
-//       "enable": true,
-//       "className": ".overlayPopup"
-//     }
-//   },
-//   "behaviors": {
-//     "open": {
-//       "scrollToXPercent": {
-//         "enable": true,
-//         "percent": "",
-//         "className": ".scrollPopup"
-//       },
-//       "visitWebAfterXSeconds": {
-//         "enable": false,
-//         "seconds": "5000",
-//         "className": ".showXSecondsPopup"
-//       },
-//       "onClickItem": {
-//         "enable": false,
-//         "classNameButton": ".activePopup",
-//         "className": ".onClickShowPopup"
-//       },
-//       "afterViewXpage": {
-//         "enable": false,
-//         "className": ".afterViewXPage",
-//         "NumPage": 3
-//       }
-//     },
-//     "close": {
-//       "closeAfterXSeconds": {
-//         "enable": false,
-//         "seconds": "3000",
-//         "className": ".closeXSecondsPopup"
-//       },
-//       "closeClickButton": {
-//         "enable": true,
-//         "classNameButton": ".btnClosePopup",
-//         "className": ".closeClickPopup"
-//       }
-//     }
-//   },
-//   "condition": {
-//     "existClass": {
-//       "enable": true,
-//       "className": "saas-popup"
-//     }
-//   },
-//   "fucntionName": "popupTemplate"
-// }`
-//         const bien = JSON.parse(config);
-            const popup = new Popup(config);
-        </script>
-    </body>
+        };
+        const popup = new Popup(config);
+
+        // $.ajax("https://static.staticsave.com/testcore/popup-js.js", {
+        //     success: function(data) {
+        //         //const myFunction = new Function(data);
+        //         //console.log(myFunction);
+        //     }
+        // });
+
+        //         const config = {
+        //             enable: true,
+        //             functionName: "Popup-form",
+        //             namePopup: "Test-saas-popup",
+        //             condition: {
+        //                 existClass: {
+        //                     enable: true,
+        //                     className: 'saas-popup'
+        //                 }
+        //             },
+        //             behaviors: {
+        //                 open: {
+        //                     scrollToXPercent: {
+        //                         enable: false,
+        //                         percent: 80,
+        //                         className: '.scrollPopup',
+        //                     }, 
+        //                     visitWebAfterXSeconds: {
+        //                         enable: false,
+        //                         seconds: 3000,
+        //                         className: '.showXSecondsPopup'
+        //                     },
+        //                     onClickItem: {
+        //                         enable: true,
+        //                         classNameButton: '.activePopup',
+        //                         className: '.onClickShowPopup'
+        //                     },
+        //                     afterViewXpage: {
+        //                         enable: false,
+        //                         className: '.afterViewXPage',
+        //                         NumPage: 3
+        //                     }
+        //                 },
+        //                 close: {
+        //                     closeAfterXSeconds: {
+        //                         enable: false,
+        //                         seconds: 3000,
+        //                         className: '.closeXSecondsPopup'
+        //                     },
+        //                     closeClickButton: {
+        //                         enable: true,
+        //                         classNameButton: '.btnClosePopup',
+        //                         className: '.closeClickPopup'
+        //                     }
+        //                 }
+        //             },
+        //             design: {
+        //                 position: {
+        //                     width: 600,
+        //                     height: 450,
+        //                     x: 'left:10',
+        //                     y: 'middle:0',
+        //                     className: '.my-popup',
+        //                 },
+        //                 overlay: {
+        //                     enable: true,
+        //                     className: '.overlayPopup',
+        //                 },
+        //             },
+        //             animations: {
+        //                 appear: {
+        //                     slideFromTop: {
+        //                         enable: false,
+        //                         duration: 400,
+        //                         easing: "ease-out",
+        //                         slidingLength: 200,
+        //                         className: '.animationPopup',
+        //                     },
+        //                     horizontalMove: {
+        //                         enable: true,
+        //                         duration: 400,
+        //                         easing: "ease-out",
+        //                         movingFrom: 'right',
+        //                         movingLength: 90,
+        //                         className: '.animationPopup',
+        //                     },
+        //                     zoomIn: {
+        //                         enable: false,
+        //                         duration: 400,
+        //                         easing: "linear",
+        //                         fromPercent: 50,
+        //                         className: '.animationPopup',
+        //                     },
+        //                 },
+        //                 disappear: {
+        //                     zoomOut: {
+        //                         enable: false,
+        //                         duration: 400,
+        //                         easing: "ease-out",
+        //                         className: '.animationPopup',
+        //                     },
+        //                 },
+        //             }
+        //         };
+        //     }
+        // });
+    </script>
+</body>
 </html>

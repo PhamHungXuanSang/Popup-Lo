@@ -11,8 +11,8 @@ class disappear {
 
     init () {
         const process = new core();
-        console.log(this.options);
-        const methods = ['zoomOut'];
+        //console.log(this.options);
+        const methods = ['zoomOut', 'fadeOut'];
         process.readConfig(this.options, methods, register);
     }
 }

@@ -1,19 +1,16 @@
 'use strict';
 
-const horizontalMove = (config) => {
+const fadeIn = (config) => {
     if (config.enable === true) {
         const easing = config.easing;
-        const screenWidth = window.innerWidth;
-        const movingLength = config.movingFrom.toLowerCase() == 'left' ? -(screenWidth*(config.movingLength/100)) : (screenWidth*(config.movingLength/100));
-        console.log(movingLength);
         const popupElement = document.querySelector(config.className);
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
                     if (popupElement.classList.contains("active")) {
-                        const popupSliding = [
-                            { transform: `translateX(${movingLength}px)`, opacity: 0 },
-                            { transform: "translateX(0px)", opacity: 1 },
+                        const popupZoomIn = [
+                            { opacity: 0 },
+                            { opacity: 1 }
                         ];
                         
                         const timing = {
@@ -22,17 +19,16 @@ const horizontalMove = (config) => {
                             easing: easing,
                         };
 
-                        popupElement.animate(popupSliding, timing);
-                        //popupElement.style.setProperty("display", `block`, "important");
+                        popupElement.animate(popupZoomIn, timing);
                     }
                 }
             });
         });
-    
+
         observer.observe(popupElement, {
             attributes: true,
         });
     }
 }
 
-export default horizontalMove;
+export default fadeIn;

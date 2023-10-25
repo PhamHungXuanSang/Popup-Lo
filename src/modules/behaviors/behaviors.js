@@ -11,14 +11,10 @@ class behaviours {
 
         this.init();
     }
-
-    // get() { // check animations xong/chưa
-
-    // }
     
     init () {
         const activePopup = new open(this.optionOpen);
-        console.log(activePopup);
+        //console.log(activePopup);
         new closePopup(this.optionClose);
     }
 };

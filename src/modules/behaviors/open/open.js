@@ -11,17 +11,14 @@ class open {
     }
 
     init () {
-        console.log(this.options);
+        //console.log(this.options);
         this.isOpenPopup();
     }
 
     isOpenPopup () {
         const process = new core();
         const methods = ['scrollToXPercent', 'visitWebAfterXSeconds', 'onClickItem', 'afterViewXPage'];
-// <<<<<<< HEAD
-// =======
-        console.log(process.readConfig(this.options, methods, register));
-// >>>>>>> fix-core-221023
+        //console.log(process.readConfig(this.options, methods, register));
         return process.readConfig(this.options, methods, register);
     }
 };

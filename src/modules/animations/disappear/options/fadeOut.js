@@ -1,6 +1,6 @@
 'use strict';
 
-const zoomOut = (config) => {
+const fadeOut = (config) => {
     if (config.enable === true) {
         const easing = config.easing;
         const popupElement = document.querySelector(config.className);
@@ -13,8 +13,8 @@ const zoomOut = (config) => {
                             //console.log("1");
                             return new Promise((resolve) => {
                                 const popupZoomOut = [
-                                    { transform: 'scale(1)' },
-                                    { transform: 'scale(0)' }
+                                    { opacity: 1 },
+                                    { opacity: 0 }
                                 ];
 
                                 const timing = {
@@ -25,7 +25,6 @@ const zoomOut = (config) => {
 
                                 const animation = popupElement.animate(popupZoomOut, timing);
                                 animation.onfinish = () => {
-                                    //console.log("Đã xong");
                                     resolve(true);
                                 };
                             });
@@ -50,4 +49,4 @@ const zoomOut = (config) => {
     }
 }
 
-export default zoomOut;
+export default fadeOut;

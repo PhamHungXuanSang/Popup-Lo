@@ -17,7 +17,6 @@ class Popup {
         if (Conditions.getStatus() === true) {
             const animation = new animations(this.config.animations);
             const behavior = new behaviors(this.config.behaviors);
-            //behavior.get(animation.get());
             const design = new designPopup(this.config.design);
         }
     }

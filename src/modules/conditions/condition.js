@@ -11,7 +11,7 @@ class condition {
 
     init () {
         const process = new core();
-        console.log(this.options);
+        //console.log(this.options);
         const methods = ['existClass'];
         process.readConfig(this.options, methods, register);
     }
@@ -19,7 +19,7 @@ class condition {
     getStatus () {
         const process = new core();
         const methods = ['existClass'];
-        console.log(process.readConfig(this.options, methods, register));
+        //console.log(process.readConfig(this.options, methods, register));
         return process.readConfig(this.options, methods, register);
     }
 };

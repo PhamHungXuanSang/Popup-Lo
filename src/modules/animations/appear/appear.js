@@ -10,16 +10,22 @@ class appear {
         this.init();
     }
 
+    isEnableAnimations () {
+        return this.options.enableAnimation;
+    }
+
     init () {
         console.log(this.options);
-        this.isOpenPopup();
+        if(this.isEnableAnimations()) {
+            this.isOpenPopup();
+        }
     }
 
     isOpenPopup () {
         const process = new core();
-        const methods = ['slideFromTop', 'horizontalMove', 'zoomIn'];
+        const methods = ['moveFromTop', 'horizontalMove', 'zoomIn', 'fadeIn'];
         
-        console.log(process.readConfig(this.options, methods, register));
+        //console.log(process.readConfig(this.options, methods, register));
         return process.readConfig(this.options, methods, register);
     }
 };
