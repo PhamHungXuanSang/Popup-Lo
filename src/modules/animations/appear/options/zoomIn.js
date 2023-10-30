@@ -1,9 +1,10 @@
 'use strict';
 
-const zoomIn = (config) => {
+const zoomIn = (config, keyPopup) => {
     if (config.enable === true) {
         const easing = config.easing;
-        const popupElement = document.querySelector(config.className);
+        const ekeyPopup = document.querySelector(`.${keyPopup}`);
+        const popupElement = ekeyPopup.querySelector('.animationPopup');
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {

@@ -8,9 +8,7 @@ const closeClickButton = (config, keyPopup) => {
             const elementPopup = eKeyPopup.querySelector('.closeClickPopup');
             elementPopup.classList.remove('active');
         }
-        return true;
     }
-    return false;
 }
 
 export default closeClickButton;

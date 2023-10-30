@@ -5,8 +5,9 @@ import core from "../../../core/core.js";
 
 class appear {
 
-    constructor(options) {
+    constructor(options, keyPopup) {
         this.options = options; 
+        this.keyPopup = keyPopup; 
         this.init();
     }
 
@@ -26,7 +27,7 @@ class appear {
         const methods = ['moveFromTop', 'horizontalMove', 'zoomIn', 'fadeIn'];
         
         //console.log(process.readConfig(this.options, methods, register));
-        return process.readConfig(this.options, methods, register);
+        return process.readConfig(this.options, methods, register, this.keyPopup);
     }
 };
 

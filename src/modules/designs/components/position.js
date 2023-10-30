@@ -1,6 +1,6 @@
 'use strict';
 
-const position = (config) => {
+const position = (config, keyPopup) => {
     if (config.width != null && config.height != null) {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
@@ -22,7 +22,9 @@ const position = (config) => {
         }
         
         // Lấy ra element bọc popup
-        let popupElement = document.querySelector(config.className);
+        const eKeyPopup = document.querySelector(`.${keyPopup}`);
+        let popupElement = eKeyPopup.querySelector('.positionPopup');
+        console.log(popupElement);
         popupElement.style.setProperty("width", `${popupWidth}px`, "important");
         popupElement.style.setProperty("height", `${popupHeight}px`, "important");
 

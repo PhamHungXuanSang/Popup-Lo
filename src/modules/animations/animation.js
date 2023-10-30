@@ -5,10 +5,10 @@ import disappear from "./disappear/disappear.js";
 
 class animations {
 
-    constructor (behaConfig) {
+    constructor (behaConfig, keyPopup) {
         this.optionAppear = behaConfig.appear;
         this.optionDisAppear = behaConfig.disappear;
-
+        this.keyPopup = keyPopup;
         this.init();
     }
 
@@ -18,8 +18,8 @@ class animations {
     // }
     
     init () {
-        new appear(this.optionAppear);
-        new disappear(this.optionDisAppear);
+        new appear(this.optionAppear, this.keyPopup);
+        new disappear(this.optionDisAppear, this.keyPopup);
     }
 };
 
