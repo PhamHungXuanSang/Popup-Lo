@@ -2,6 +2,7 @@
     position: absolute;
     z-index: 10 !important;
 }
+
 .active {
     display: block !important;
 }
@@ -20,7 +21,6 @@
     z-index: 0;
 }
 
-/* ============================================ Test Templates Offer */
 .popup {
     width: 100%;
     height: 100%;

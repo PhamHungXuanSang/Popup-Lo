@@ -1,7 +1,9 @@
 "use strict";
 
-const closeAfterXSeconds = (config) => {
+const closeAfterXSeconds = (config, keyPopup) => {
     if(config.enable == true) {
+        const ekeyPopup = document.querySelector(`.${keyPopup}`);
+        const elementClosePopup= ekeyPopup.querySelector('.closeXSecondsPopup');
         const observer = new MutationObserver(mutations => {
             let run = true;
             let timeoutId;
@@ -9,8 +11,8 @@ const closeAfterXSeconds = (config) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
                     if (document.querySelector(config.className).classList.contains("active") && run === true) {
                         timeoutId = setTimeout(() => {
-                            const elementClosePopup =  document.querySelector(config.className);
                             elementClosePopup.classList.remove("active");
+                            elementClosePopup.style.setProperty("display", "none");
                             run == false;
                         }, config.seconds);
                     } else {
@@ -20,7 +22,7 @@ const closeAfterXSeconds = (config) => {
             })
         })
     
-        observer.observe(document.querySelector(config.className), {
+        observer.observe(elementClosePopup, {
             attributes: true,
         });
     }

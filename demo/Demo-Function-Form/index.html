@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ExamPopup.css">
     <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
     <title>Demo Function Form</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body class="saas-popup" style="height: 2000px;">
-    <div id="root">
-        <button class="activePopup" style="height: 100px; width: 100px;">Click me</button>
-    </div>
 
-    <div class="my-popup form-popup closeXSecondsPopup showXSecondsPopup afterViewXPage onClickShowPopup closeClickPopup scrollPopup overlayPopup animationPopup" style="display: none; position: fixed;">
-        <div class="popup">
-            <div class="img-wrapper">
-                <img src="https://images.pexels.com/photos/5723981/pexels-photo-5723981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Anh">
-            </div>
-            <div class="content">
-                <p class="popup-heading">Save up to</p>
-                <h1 class="popup-offer">30% OFF</h1>
-                <p class="popup-desc">In your next holiday offer</p>
+<body class="saas-popup">
+    <button class="activePopup btnpopupTest01">Click Pop 1</button>
+    <button class="activePopup btnpopupTest02">Click Pop 2</button>
 
-                <form action="POST" class="popup-form">
-                    <input class="email" type="email" placeholder="Please enter your email">
-                    <input class="submit" type="button" value="Get it now">
-                </form>
+    <div class="my-popup popupTest01"></div>
+    <div class="my-popup popupTest02"></div>
 
-                <button class="refuse btnClosePopup">No, thanks</button>
-            </div>
-        </div>
-    </div>
+    <div id="demo"></div>
 
-    <script type="module">
+    <script type="module" src="../../src/core/FindClass.js"></script>
+    <script type="module" src="../../src/core/test.js"></script>
+    <!-- <script type="module">
         //import myJSON from 'https://static.staticsave.com/testjson/myjson.json' assert { type: "json" };
         import Popup from '../../src/core/Popup.js';
         const config = {
@@ -54,7 +41,7 @@
                         className: '.scrollPopup',
                     },
                     visitWebAfterXSeconds: {
-                        enable: false,
+                        enable: true,
                         seconds: 3000, // int
                         className: '.showXSecondsPopup'
                     },
@@ -64,7 +51,7 @@
                         className: '.onClickShowPopup'
                     },
                     afterViewXPage: {
-                        enable: true,
+                        enable: false,
                         className: '.afterViewXPage',
                         NumPage: 1, // int
                     }
@@ -146,109 +133,83 @@
         };
         const popup = new Popup(config);
 
-        // $.ajax("https://static.staticsave.com/testcore/popup-js.js", {
-        //     success: function(data) {
-        //         //const myFunction = new Function(data);
-        //         //console.log(myFunction);
-        //     }
-        // });
+        // async function getQuote() {
+        //     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        //     const apiUrl = 'https://saasstaging.variux.com/rest/V1/popupConfig/1';
+        //     try {
 
-        //         const config = {
-        //             enable: true,
-        //             functionName: "Popup-form",
-        //             namePopup: "Test-saas-popup",
-        //             condition: {
-        //                 existClass: {
-        //                     enable: true,
-        //                     className: 'saas-popup'
-        //                 }
-        //             },
-        //             behaviors: {
-        //                 open: {
-        //                     scrollToXPercent: {
-        //                         enable: false,
-        //                         percent: 80,
-        //                         className: '.scrollPopup',
-        //                     }, 
-        //                     visitWebAfterXSeconds: {
-        //                         enable: false,
-        //                         seconds: 3000,
-        //                         className: '.showXSecondsPopup'
-        //                     },
-        //                     onClickItem: {
-        //                         enable: true,
-        //                         classNameButton: '.activePopup',
-        //                         className: '.onClickShowPopup'
-        //                     },
-        //                     afterViewXpage: {
-        //                         enable: false,
-        //                         className: '.afterViewXPage',
-        //                         NumPage: 3
-        //                     }
-        //                 },
-        //                 close: {
-        //                     closeAfterXSeconds: {
-        //                         enable: false,
-        //                         seconds: 3000,
-        //                         className: '.closeXSecondsPopup'
-        //                     },
-        //                     closeClickButton: {
-        //                         enable: true,
-        //                         classNameButton: '.btnClosePopup',
-        //                         className: '.closeClickPopup'
-        //                     }
-        //                 }
-        //             },
-        //             design: {
-        //                 position: {
-        //                     width: 600,
-        //                     height: 450,
-        //                     x: 'left:10',
-        //                     y: 'middle:0',
-        //                     className: '.my-popup',
-        //                 },
-        //                 overlay: {
-        //                     enable: true,
-        //                     className: '.overlayPopup',
-        //                 },
-        //             },
-        //             animations: {
-        //                 appear: {
-        //                     slideFromTop: {
-        //                         enable: false,
-        //                         duration: 400,
-        //                         easing: "ease-out",
-        //                         slidingLength: 200,
-        //                         className: '.animationPopup',
-        //                     },
-        //                     horizontalMove: {
-        //                         enable: true,
-        //                         duration: 400,
-        //                         easing: "ease-out",
-        //                         movingFrom: 'right',
-        //                         movingLength: 90,
-        //                         className: '.animationPopup',
-        //                     },
-        //                     zoomIn: {
-        //                         enable: false,
-        //                         duration: 400,
-        //                         easing: "linear",
-        //                         fromPercent: 50,
-        //                         className: '.animationPopup',
-        //                     },
-        //                 },
-        //                 disappear: {
-        //                     zoomOut: {
-        //                         enable: false,
-        //                         duration: 400,
-        //                         easing: "ease-out",
-        //                         className: '.animationPopup',
-        //                     },
-        //                 },
-        //             }
-        //         };
+        //         const response = await fetch(proxyUrl + apiUrl);
+        //         const data = await response.json();
+        //         console.log({ data });
+        //     } catch (error) {
+        //         console.log(error);
         //     }
-        // });
-    </script>
+        // }
+        // // On load
+        // getQuote();
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xhttp.responseText;
+        //     }
+        // };
+        // xhttp.open("GET", "filename", true);
+        // xhttp.send();
+
+        // var xmlhttp = new XMLHttpRequest();
+        // xmhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xmhttp.responseText;
+        //     }
+        // }; 
+
+        // var theUrl = "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/integration/admin/token";
+        // xmlhttp.open("GET", theUrl, true);
+        // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // xmlhttp.send(JSON.stringify({"username": "tungnguyen", "password": "p7}Z/&6MG-fRg(yg"}));
+
+        // xmlhttp.onreadystatechange = () => {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xmlhttp.responseText;
+        //     }
+        // };
+        // xmlhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
+        // xmlhttp.send();
+        
+        // fetch("https://saasstaging.variux.com/rest/V1/integration/admin/token", {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         username: "tungnguyen",
+        //         password: "p7}Z/&6MG-fRg(yg",
+        //     }),
+        //     headers: {
+        //         "Content-type": "application/json; charset=UTF-8"
+        //     }
+        // })
+        //     .then(res => res.json())
+        //     .then(data => console.log(data));
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xhttp.responseText;
+        //     }
+        // };
+        // xhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
+        // xhttp.send();
+
+        // console.log(JSON.parse("{\"namePopup\":\"testPopup\",\"enabled\":\"1\",\"behavior\":{\"open\":{\"scrollTo\":{\"enabled\":\"1\",\"value\":\"30\"},\"visitAfterSeconds\":{\"enable\":\"0\",\"value\":\"\"},\"onclick\":{\"enabled\":\"0\"}},\"close\":{\"closeAfterXSeconds\":{\"enabled\":\"0\",\"seconds\":\"\"},\"closeClickButton\":{\"enable\":\"0\"}}},\"design\":{\"position\":{\"width\":\"500\",\"height\":\"500\",\"x\":\"right\",\"y\":\"top\"},\"overlay\":{\"enable\":\"1\"}},\"animation\":{\"appear\":{\"enableAnimation\":\"1\",\"moveFromTop\":{\"enabled\":\"1\",\"duration\":\"300\",\"easing\":\"ease\",\"movingLength\":\"300\"},\"horizontal\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\",\"movingFrom\":\"left\",\"movingLength\":\"\"},\"zoomin\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\",\"fromPercent\":\"\"},\"fadein\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\"}},\"disapear\":{\"enableAnimation\":\"1\",\"zoomout\":{\"enabled\":\"1\",\"duration\":\"10\",\"easing\":\"ease-in-out\"},\"fadeout\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\"}}}}"));
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function () {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xhttp.responseText;
+        //     }
+        // };
+        // xhttp.open("GET", "https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
+        // xhttp.send();
+    </script> -->
 </body>
+
 </html>

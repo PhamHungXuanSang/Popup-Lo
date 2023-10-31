@@ -1,16 +1,15 @@
 'use strict';
 
-const visitWebAfterXSeconds = (config) => {
+const visitWebAfterXSeconds = (config, keyPopup) => {
     if (config.enable == true) {
         window.onload = () => {
             setTimeout(() => {
-                const elementShowXSeconds = document.querySelector(config.className);
+                const ekeyPopup = document.querySelector(`.${keyPopup}`);
+                const elementShowXSeconds = ekeyPopup.querySelector(config.className);
                 elementShowXSeconds.classList.add("active");
             }, config.seconds);
         }
-        return true;
     }
-    return false;
 }
 
 export default visitWebAfterXSeconds;
