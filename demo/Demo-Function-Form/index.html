@@ -11,7 +11,6 @@
     <button class="activePopup btnpopupTest02">Click Pop 2</button>
 
     <script type="module">
-        //import Popup from "https://phamhungxuansang.github.io/Popup-Lo/src/core/Popup.js";
         import { readConfig } from "../../src/core/app.js";
     
         const config1 = {
@@ -56,10 +55,105 @@
             },
             design: {
                 position: {
-                    width: 500,
+                    width: 700,
+                    height: 450,
+                    x: '0',
+                    y: '0',
+                },
+                overlay: {
+                    enable: true,
+                },
+            },
+            animations: {
+                appear: {
+                    enableAnimation: true,
+                    moveFromTop: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in-out",
+                        movingLength: 10,
+                    },
+                    horizontalMove: {
+                        enable: true,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingFrom: 'right',
+                        movingLength: 10,
+                    },
+                    zoomIn: {
+                        enable: false,
+                        duration: 300,
+                        easing: "linear",
+                        fromPercent: 80,
+                    },
+                    fadeIn: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-in",
+                    }
+                },
+                disappear: {
+                    enableAnimation: true,
+                    zoomOut: {
+                        enable: true,
+                        duration: 200,
+                        easing: "ease-out",
+                    },
+                    fadeOut: {
+                        enable: false,
+                        duration: 500,
+                        easing: "ease-out",
+                    },
+                },
+            }
+        };
+
+        const config2 = {
+            enable: true,
+            functionName: "Popup-form",
+            namePopup: "Test-saas-popup",
+            condition: {
+                existClass: {
+                    enable: true,
+                },
+                existCookie: {
+                    enable: false,
+                }
+            },
+            behaviors: {
+                open: {
+                    scrollToXPercent: {
+                        enable: false,
+                        percent: 50,
+                    },
+                    visitWebAfterXSeconds: {
+                        enable: true,
+                        seconds: 10000,
+                    },
+                    onClickItem: {
+                        enable: false,
+                    },
+                    afterViewXPage: {
+                        enable: false,
+                        NumPage: 3,
+                    }
+                },
+                close: {
+                    closeAfterXSeconds: {
+                        enable: true,
+                        seconds: 3000,
+                    },
+                    closeClickButton: {
+                        enable: false,
+                    }
+                }
+            },
+            design: {
+                position: {
+                    width: 450,
                     height: 450,
                     x: '100',
-                    y: '50',
+                    y: '100',
                 },
                 overlay: {
                     enable: true,
@@ -109,7 +203,7 @@
             }
         };
         
-        readConfig([config1]);
+        readConfig([config1, config2]);
         
         // let newPopup2 = new Popup(config1, "popupTest02");
         // newPopup2.show();

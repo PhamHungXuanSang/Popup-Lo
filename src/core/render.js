@@ -8,19 +8,19 @@ class RenderPopup {
         this.classList = classList
     }
 
-    innerPopup () {
+    innerPopup (key) {
         const popup =  document.createElement("div");
 
-        popup.classList.add(this.id_Popup);
+        popup.classList.add(this.idPopup);
         for (let feature of this.classList) {
             console.log(feature);
             popup.classList.add(feature);
         }
         popup.innerHTML = this.html;
         popup.style.setProperty("position", `fixed`, "important");
-
-        console.log("SSSSSSSSSS: ");
-        const elementIDPopup = document.querySelector(`.${this.idPopup}`);
+        
+        // const elementIDPopup = document.querySelector(`.${this.idPopup}`);
+        const elementIDPopup = document.querySelector(`.${key}`);
         elementIDPopup.appendChild(popup);
     }
 };

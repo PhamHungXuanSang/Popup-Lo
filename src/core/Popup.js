@@ -25,9 +25,11 @@ class Popup {
         });
     }
 
-    show() {
+    show(key) {
+        console.log("AAAAAAAL: "+ key);
+        console.log("BBBBBBL: "+ key);
         const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, ['closePopup', 'afterViewXPage', 'closeXSecondsPopup', 'showXSecondsPopup', 'afterViewXPage', 'onClickShowPopup', 'closeClickPopup', 'scrollPopup', 'overlayPopup', 'animationPopup', 'positionPopup', 'closeClickOutSide']);
-        render.innerPopup();
+        render.innerPopup(key);
 
         const Conditions = new condition(this.config.condition);
         Conditions.getStatus();

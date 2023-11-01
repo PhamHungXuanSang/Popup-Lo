@@ -1,7 +1,7 @@
 'use strict';
 
 const fadeIn = (config, keyPopup) => {
-    if (config.enable === true) {
+    if (config.enable == true) {
         const easing = config.easing;
         const ekeyPopup = document.querySelector(`.${keyPopup}`);
         const popupElement = ekeyPopup.querySelector('.animationPopup');
