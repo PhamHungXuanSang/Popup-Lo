@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ExamPopup.css">
+    <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
+    <title>Demo Function Form</title>
+</head>
+
+<body class="saas-popup">
+    <button class="activePopup btnpopupTest01">Click Pop 1</button>
+    <button class="activePopup btnpopupTest02">Click Pop 2</button>
+
+    <div class="my-popup popupTest01"></div>
+    <div class="my-popup popupTest02"></div>
+
+    <div id="demo"></div>
+
+    <script type="module" src="../../src/core/FindClass.js"></script>
+    <script type="module" src="../../src/core/test.js"></script>
+    <!-- <script type="module">
+        //import myJSON from 'https://static.staticsave.com/testjson/myjson.json' assert { type: "json" };
+        import Popup from '../../src/core/Popup.js';
+        const config = {
+            enable: true,
+            functionName: "Popup-form",
+            namePopup: "Test-saas-popup",
+            condition: {
+                existClass: {
+                    enable: true,
+                    className: 'saas-popup'
+                }
+            },
+            behaviors: {
+                open: {
+                    scrollToXPercent: {
+                        enable: false,
+                        percent: 80, // int
+                        className: '.scrollPopup',
+                    },
+                    visitWebAfterXSeconds: {
+                        enable: true,
+                        seconds: 3000, // int
+                        className: '.showXSecondsPopup'
+                    },
+                    onClickItem: {
+                        enable: false,
+                        classNameButton: '.activePopup',
+                        className: '.onClickShowPopup'
+                    },
+                    afterViewXPage: {
+                        enable: false,
+                        className: '.afterViewXPage',
+                        NumPage: 1, // int
+                    }
+                },
+                close: {
+                    closeAfterXSeconds: {
+                        enable: true,
+                        seconds: 3000, // int
+                        className: '.closeXSecondsPopup'
+                    },
+                    closeClickButton: {
+                        enable: false,
+                        classNameButton: '.btnClosePopup',
+                        className: '.closeClickPopup'
+                    }
+                }
+            },
+            design: {
+                position: {
+                    width: 600, // int
+                    height: 450, // int
+                    x: 'center:0', // string
+                    y: 'top:5', // string
+                    className: '.my-popup',
+                },
+                overlay: {
+                    enable: true,
+                    className: '.overlayPopup',
+                },
+            },
+            animations: {
+                appear: {
+                    enableAnimation: true,
+                    moveFromTop: {
+                        enable: true,
+                        duration: 400, // int
+                        easing: "ease-in-out", // string
+                        movingLength: 10, // int????????????????????
+                        className: '.animationPopup',
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400, //int
+                        easing: "ease-in", // string
+                        movingFrom: 'right', // string
+                        movingLength: 10, // int????????????????????
+                        className: '.animationPopup',
+                    },
+                    zoomIn: {
+                        enable: false,
+                        duration: 300, // int
+                        easing: "linear", // string
+                        fromPercent: 80, // int????????????????????
+                        className: '.animationPopup',
+                    },
+                    fadeIn: {
+                        enable: false,
+                        duration: 200, // int
+                        easing: "ease-in", // string
+                        className: '.animationPopup',
+                    }
+                },
+                disappear: {
+                    enableAnimation: true,
+                    zoomOut: {
+                        enable: false,
+                        duration: 200, // int
+                        easing: "ease-out", // string
+                        className: '.animationPopup',
+                    },
+                    fadeOut: {
+                        enable: true,
+                        duration: 500, // int
+                        easing: "ease-out", // string
+                        className: '.animationPopup',
+                    },
+                },
+            }
+        };
+        const popup = new Popup(config);
+
+        // async function getQuote() {
+        //     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        //     const apiUrl = 'https://saasstaging.variux.com/rest/V1/popupConfig/1';
+        //     try {
+
+        //         const response = await fetch(proxyUrl + apiUrl);
+        //         const data = await response.json();
+        //         console.log({ data });
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
+        // // On load
+        // getQuote();
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xhttp.responseText;
+        //     }
+        // };
+        // xhttp.open("GET", "filename", true);
+        // xhttp.send();
+
+        // var xmlhttp = new XMLHttpRequest();
+        // xmhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xmhttp.responseText;
+        //     }
+        // }; 
+
+        // var theUrl = "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/integration/admin/token";
+        // xmlhttp.open("GET", theUrl, true);
+        // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // xmlhttp.send(JSON.stringify({"username": "tungnguyen", "password": "p7}Z/&6MG-fRg(yg"}));
+
+        // xmlhttp.onreadystatechange = () => {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xmlhttp.responseText;
+        //     }
+        // };
+        // xmlhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
+        // xmlhttp.send();
+        
+        // fetch("https://saasstaging.variux.com/rest/V1/integration/admin/token", {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         username: "tungnguyen",
+        //         password: "p7}Z/&6MG-fRg(yg",
+        //     }),
+        //     headers: {
+        //         "Content-type": "application/json; charset=UTF-8"
+        //     }
+        // })
+        //     .then(res => res.json())
+        //     .then(data => console.log(data));
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xhttp.responseText;
+        //     }
+        // };
+        // xhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
+        // xhttp.send();
+
+        // console.log(JSON.parse("{\"namePopup\":\"testPopup\",\"enabled\":\"1\",\"behavior\":{\"open\":{\"scrollTo\":{\"enabled\":\"1\",\"value\":\"30\"},\"visitAfterSeconds\":{\"enable\":\"0\",\"value\":\"\"},\"onclick\":{\"enabled\":\"0\"}},\"close\":{\"closeAfterXSeconds\":{\"enabled\":\"0\",\"seconds\":\"\"},\"closeClickButton\":{\"enable\":\"0\"}}},\"design\":{\"position\":{\"width\":\"500\",\"height\":\"500\",\"x\":\"right\",\"y\":\"top\"},\"overlay\":{\"enable\":\"1\"}},\"animation\":{\"appear\":{\"enableAnimation\":\"1\",\"moveFromTop\":{\"enabled\":\"1\",\"duration\":\"300\",\"easing\":\"ease\",\"movingLength\":\"300\"},\"horizontal\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\",\"movingFrom\":\"left\",\"movingLength\":\"\"},\"zoomin\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\",\"fromPercent\":\"\"},\"fadein\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\"}},\"disapear\":{\"enableAnimation\":\"1\",\"zoomout\":{\"enabled\":\"1\",\"duration\":\"10\",\"easing\":\"ease-in-out\"},\"fadeout\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\"}}}}"));
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function () {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         document.getElementById("demo").innerHTML = xhttp.responseText;
+        //     }
+        // };
+        // xhttp.open("GET", "https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
+        // xhttp.send();
+    </script> -->
+</body>
+
+</html>
