@@ -24,7 +24,7 @@ class Popup {
     // }
 
     show() {
-        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, ['afterViewXPage', 'closeXSecondsPopup', 'showXSecondsPopup', 'afterViewXPage', 'onClickShowPopup', 'closeClickPopup', 'scrollPopup', 'overlayPopup', 'form-popup', 'animationPopup', 'positionPopup', 'closeClickOutSide']);
+        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, ['closePopup', 'afterViewXPage', 'closeXSecondsPopup', 'showXSecondsPopup', 'afterViewXPage', 'onClickShowPopup', 'closeClickPopup', 'scrollPopup', 'overlayPopup', 'animationPopup', 'positionPopup', 'closeClickOutSide']);
         render.innerPopup();
 
         const Conditions = new condition(this.config.condition);

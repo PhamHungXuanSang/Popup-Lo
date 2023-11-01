@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ExamPopup.css">
+    <!-- <link rel="stylesheet" href="ExamPopup.css"> -->
     <link rel="stylesheet" href="../../src/core/core.css">
     <title>Demo Function Form</title>
 </head>
@@ -16,9 +15,8 @@
     <div class="my-popup popupTest01"></div>
     <div class="my-popup popupTest02"></div>
 
-    <div id="demo"></div>
-
     <script type="module">
+        // import Popup from "https://phamhungxuansang.github.io/Popup-Lo/src/core/Popup.js";
         import Popup from "../../src/core/Popup.js";
     
         const config1 = {
@@ -27,10 +25,10 @@
             namePopup: "Test-saas-popup",
             condition: {
                 existClass: {
-                    enable: false,
+                    enable: true,
                 },
                 existCookie: {
-                    enable: true,
+                    enable: false,
                 }
             },
             behaviors: {
@@ -118,123 +116,14 @@
         
         let newPopup1 = new Popup(config1, "popupTest01");
         newPopup1.show();
+        
+        let newPopup2 = new Popup(config1, "popupTest02");
+        newPopup2.show();
     </script>
-
-
+    
     <!-- <script type="module" src="../../src/core/test.js"></script> -->
     <!-- <script type="module">
         //import myJSON from 'https://static.staticsave.com/testjson/myjson.json' assert { type: "json" };
-        import Popup from '../../src/core/Popup.js';
-        const config = {
-            enable: true,
-            functionName: "Popup-form",
-            namePopup: "Test-saas-popup",
-            condition: {
-                existClass: {
-                    enable: true,
-                    className: 'saas-popup'
-                }
-            },
-            behaviors: {
-                open: {
-                    scrollToXPercent: {
-                        enable: false,
-                        percent: 80, // int
-                        className: '.scrollPopup',
-                    },
-                    visitWebAfterXSeconds: {
-                        enable: true,
-                        seconds: 3000, // int
-                        className: '.showXSecondsPopup'
-                    },
-                    onClickItem: {
-                        enable: false,
-                        classNameButton: '.activePopup',
-                        className: '.onClickShowPopup'
-                    },
-                    afterViewXPage: {
-                        enable: false,
-                        className: '.afterViewXPage',
-                        NumPage: 1, // int
-                    }
-                },
-                close: {
-                    closeAfterXSeconds: {
-                        enable: true,
-                        seconds: 3000, // int
-                        className: '.closeXSecondsPopup'
-                    },
-                    closeClickButton: {
-                        enable: false,
-                        classNameButton: '.btnClosePopup',
-                        className: '.closeClickPopup'
-                    }
-                }
-            },
-            design: {
-                position: {
-                    width: 600, // int
-                    height: 450, // int
-                    x: 'center:0', // string
-                    y: 'top:5', // string
-                    className: '.my-popup',
-                },
-                overlay: {
-                    enable: true,
-                    className: '.overlayPopup',
-                },
-            },
-            animations: {
-                appear: {
-                    enableAnimation: true,
-                    moveFromTop: {
-                        enable: true,
-                        duration: 400, // int
-                        easing: "ease-in-out", // string
-                        movingLength: 10, // int????????????????????
-                        className: '.animationPopup',
-                    },
-                    horizontalMove: {
-                        enable: false,
-                        duration: 400, //int
-                        easing: "ease-in", // string
-                        movingFrom: 'right', // string
-                        movingLength: 10, // int????????????????????
-                        className: '.animationPopup',
-                    },
-                    zoomIn: {
-                        enable: false,
-                        duration: 300, // int
-                        easing: "linear", // string
-                        fromPercent: 80, // int????????????????????
-                        className: '.animationPopup',
-                    },
-                    fadeIn: {
-                        enable: false,
-                        duration: 200, // int
-                        easing: "ease-in", // string
-                        className: '.animationPopup',
-                    }
-                },
-                disappear: {
-                    enableAnimation: true,
-                    zoomOut: {
-                        enable: false,
-                        duration: 200, // int
-                        easing: "ease-out", // string
-                        className: '.animationPopup',
-                    },
-                    fadeOut: {
-                        enable: true,
-                        duration: 500, // int
-                        easing: "ease-out", // string
-                        className: '.animationPopup',
-                    },
-                },
-            }
-        };
-        const popup = new Popup(config);
-
         // async function getQuote() {
         //     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         //     const apiUrl = 'https://saasstaging.variux.com/rest/V1/popupConfig/1';
