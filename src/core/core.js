@@ -1,14 +1,11 @@
 "use strict";
 
 class core {
-
     constructor(userconfig) {
         this.config = userconfig;
-    } 
+    }
 
     readConfig (config, methods, register, keyPopup) {
-        console.log(config);
-        var flag = false;
         var checked = false;
         methods.forEach((method) => {
             if (config[method] !== undefined) {

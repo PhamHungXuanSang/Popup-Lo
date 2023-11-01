@@ -11,17 +11,19 @@ class Popup {
     constructor(userconfig, keyPopup) {
         this.config = userconfig;
         this.keyPopup = keyPopup;
-        // this.init();
     }
 
-    // init() {
-    //     const Conditions = new condition(this.config.condition);
-    //     Conditions.getStatus();
-    //     if (Conditions.getStatus() === true && this.config.enable === true) {
-    //         new behaviors(this.config.behaviors, this.keyPopup);
-    //         new designPopup(this.config.design);
-    //     } 
-    // }
+    addStyleCSS() {
+        document.addEventListener('DOMContentLoaded', () => {
+            const head = document.querySelector('head');
+            const link = document.createElement('link');
+
+            link.rel = 'stylesheet';
+            link.href = "https://phamhungxuansang.github.io/Popup-Lo/src/core/core.css";
+
+            head.appendChild(link);
+        });
+    }
 
     show() {
         const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, ['closePopup', 'afterViewXPage', 'closeXSecondsPopup', 'showXSecondsPopup', 'afterViewXPage', 'onClickShowPopup', 'closeClickPopup', 'scrollPopup', 'overlayPopup', 'animationPopup', 'positionPopup', 'closeClickOutSide']);

@@ -19,6 +19,7 @@ class RenderPopup {
         popup.innerHTML = this.html;
         popup.style.setProperty("position", `fixed`, "important");
 
+        console.log("SSSSSSSSSS: ");
         const elementIDPopup = document.querySelector(`.${this.idPopup}`);
         elementIDPopup.appendChild(popup);
     }
