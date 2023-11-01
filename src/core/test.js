@@ -51,7 +51,7 @@ const config1 = {
         position: {
             width: 600, // int
             height: 450, // int
-            x: '25', // string
+            x: '100', // string
             y: '50', // string
             className: '.my-popup',
         },

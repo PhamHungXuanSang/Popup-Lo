@@ -2,8 +2,8 @@
 
 const position = (config, keyPopup) => {
     if (config.width != null && config.height != null) {
-        var browserWidth = window.innerWidth;
-        var browserHeight = window.innerHeight;
+        var browserWidth = document.documentElement.clientWidth;
+        var browserHeight = document.documentElement.clientHeight;
         var popupWidth = config.width;
         var popupHeight = config.height;
         
