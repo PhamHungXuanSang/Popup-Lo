@@ -1,13 +1,19 @@
 const htmlPopup = `
-    <form action="/action_page.php" class="form-container">
-        <h1>Login</h1>
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-        <button type="submit" class="btn">Login</button>
-        <button type="button" class="btn cancel btnClosePopup">Close</button>
+<div class="popup">
+<div class="img-wrapper"><img src="/images/gift" alt="Anh"></div>
+<div class="content">
+    <p class="popup-heading">Save up to</p>
+    <h1 class="popup-offer">30% OFF</h1>
+    <p class="popup-desc">In your next holiday offer</p>
+
+    <form action="POST" class="popup-form">
+        <input class="email" type="email" placeholder="Please enter your email">
+        <input class="submit" type="button" value="Get it now">
     </form>
+
+    <button class="refuse">No, thanks</button>
+</div>
+</div>
 `;
 
 export default htmlPopup;
