@@ -9,7 +9,7 @@ const closeAfterXSeconds = (config, keyPopup) => {
             let timeoutId;
             mutations.forEach(mutation => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
-                    if (document.querySelector(config.className).classList.contains("active") && run === true) {
+                    if (elementClosePopup.classList.contains("active") && run === true) {
                         timeoutId = setTimeout(() => {
                             elementClosePopup.classList.remove("active");
                             elementClosePopup.style.setProperty("display", "none");

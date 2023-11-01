@@ -18,7 +18,7 @@ const existCookie = (config) => {
             return "";
         }
         const checkCookie = () => {
-            let value = getCookie(config.cname);
+            let value = getCookie('saas-popup');
             if (value != 1) {
                 return false;
             }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ExamPopup.css">
-    <link rel="stylesheet" href="../../src/modules/behaviors/open/styles/temp.css">
+    <link rel="stylesheet" href="../../src/core/core.css">
     <title>Demo Function Form</title>
 </head>
 
@@ -18,11 +18,8 @@
 
     <div id="demo"></div>
 
-    <script type="module" src="../../src/core/FindClass.js"></script>
-
     <script type="module">
-        import Popup from "https://phamhungxuansang.github.io/Popup-Lo/src/core/Popup.js";
-    //import FindClass from "./FindClass.js";
+        import Popup from "../../src/core/Popup.js";
     
         const config1 = {
             enable: true,
@@ -30,104 +27,90 @@
             namePopup: "Test-saas-popup",
             condition: {
                 existClass: {
+                    enable: false,
+                },
+                existCookie: {
                     enable: true,
-                    className: 'saas-popup'
                 }
             },
             behaviors: {
                 open: {
                     scrollToXPercent: {
                         enable: false,
-                        percent: 80, // int
-                        className: '.scrollPopup',
+                        percent: 50,
                     },
                     visitWebAfterXSeconds: {
                         enable: false,
-                        seconds: 3000, // int
-                        className: '.showXSecondsPopup'
+                        seconds: 3000,
                     },
                     onClickItem: {
                         enable: true,
-                        classNameButton: '.activePopup',
-                        className: '.onClickShowPopup'
                     },
                     afterViewXPage: {
                         enable: false,
-                        className: '.afterViewXPage',
-                        NumPage: 1, // int
+                        NumPage: 3,
                     }
                 },
                 close: {
                     closeAfterXSeconds: {
                         enable: false,
-                        seconds: 3000, // int
-                        className: '.closeXSecondsPopup'
+                        seconds: 3000,
                     },
                     closeClickButton: {
                         enable: true,
-                        classNameButton: '.btnClosePopup',
-                        className: '.closeClickPopup'
                     }
                 }
             },
             design: {
                 position: {
-                    width: 600, // int
-                    height: 450, // int
-                    x: '100', // string
-                    y: '50', // string
-                    className: '.my-popup',
+                    width: 500,
+                    height: 450,
+                    x: '100',
+                    y: '50',
                 },
                 overlay: {
                     enable: true,
-                    className: '.overlayPopup',
                 },
             },
             animations: {
                 appear: {
                     enableAnimation: true,
                     moveFromTop: {
-                        enable: true,
-                        duration: 400, // int
-                        easing: "ease-in-out", // string
-                        movingLength: 10, // int????????????????????
-                        className: '.animationPopup',
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in-out",
+                        movingLength: 10,
                     },
                     horizontalMove: {
-                        enable: false,
-                        duration: 400, //int
-                        easing: "ease-in", // string
-                        movingFrom: 'right', // string
-                        movingLength: 10, // int????????????????????
-                        className: '.animationPopup',
+                        enable: true,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingFrom: 'right',
+                        movingLength: 10,
                     },
                     zoomIn: {
                         enable: false,
-                        duration: 300, // int
-                        easing: "linear", // string
-                        fromPercent: 80, // int????????????????????
-                        className: '.animationPopup',
+                        duration: 300,
+                        easing: "linear",
+                        fromPercent: 80,
                     },
                     fadeIn: {
                         enable: false,
-                        duration: 200, // int
-                        easing: "ease-in", // string
-                        className: '.animationPopup',
+                        duration: 300,
+                        easing: "ease-in",
                     }
                 },
                 disappear: {
                     enableAnimation: true,
                     zoomOut: {
-                        enable: false,
-                        duration: 200, // int
-                        easing: "ease-out", // string
-                        className: '.animationPopup',
+                        enable: true,
+                        duration: 200,
+                        easing: "ease-out",
                     },
                     fadeOut: {
-                        enable: true,
-                        duration: 500, // int
-                        easing: "ease-out", // string
-                        className: '.animationPopup',
+                        enable: false,
+                        duration: 500,
+                        easing: "ease-out",
                     },
                 },
             }

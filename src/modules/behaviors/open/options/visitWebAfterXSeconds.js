@@ -5,7 +5,7 @@ const visitWebAfterXSeconds = (config, keyPopup) => {
         window.onload = () => {
             setTimeout(() => {
                 const ekeyPopup = document.querySelector(`.${keyPopup}`);
-                const elementShowXSeconds = ekeyPopup.querySelector(config.className);
+                const elementShowXSeconds = ekeyPopup.querySelector('.showXSecondsPopup');
                 elementShowXSeconds.classList.add("active");
             }, config.seconds);
         }

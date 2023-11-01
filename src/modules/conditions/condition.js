@@ -12,13 +12,13 @@ class condition {
     init () {
         const process = new core();
         console.log(this.options);
-        const methods = ['existClass'];
+        const methods = ['existClass', 'existCookie'];
         process.readConfig(this.options, methods, register);
     }
 
     getStatus () {
         const process = new core();
-        const methods = ['existClass'];
+        const methods = ['existClass', 'existCookie'];
         console.log(process.readConfig(this.options, methods, register));
         return process.readConfig(this.options, methods, register);
     }

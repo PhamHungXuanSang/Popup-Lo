@@ -10,7 +10,17 @@ class disappear {
         this.init();
     }
 
+    isDisnableAnimations() {
+        return this.options.enableAnimation;
+    }
+
     init () {
+        if(this.isDisnableAnimations()) {
+            this.isClosePopup();
+        }
+    }
+
+    isClosePopup () {
         const process = new core();
         //console.log(this.options);
         const methods = ['zoomOut', 'fadeOut'];

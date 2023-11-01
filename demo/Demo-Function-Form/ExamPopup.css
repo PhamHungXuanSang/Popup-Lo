@@ -22,9 +22,8 @@ body {
 }
 
 .form-popup {
-    display: none   ;
+    display: none;
     right: 15px;
-    border: 3px solid #ccc;
     width: 300px;
 }
 
@@ -70,18 +69,6 @@ body {
 }
 
 /* Css responsive Template */
-.popup {
-    width: 600px;
-    height: 400px;
-    display: flex;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 2px 3px 3px 2px #ccc;
-    position: fixed;
-    top: calc(50vh - 400px / 2);
-    left: calc(50vw - 600px / 2);
-}
-
 .img-wrapper {
     height: 100%;
     width: 45%;
