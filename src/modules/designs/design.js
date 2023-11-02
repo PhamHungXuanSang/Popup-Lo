@@ -12,8 +12,8 @@ class designPopup {
 
     init () {
         const process = new core();
-        console.log(this.options);
-        const methods = ['overlay', 'position'];
+        const methods = ['overlayPopup', 'positionPopup'];
+
         process.readConfig(this.options, methods, register, this.keyPopup);
     }
 }

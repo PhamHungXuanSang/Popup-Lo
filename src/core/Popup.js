@@ -25,11 +25,50 @@ class Popup {
         });
     }
 
-    show(key) {
-        console.log("AAAAAAAL: "+ key);
-        console.log("BBBBBBL: "+ key);
-        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, ['closePopup', 'afterViewXPage', 'closeXSecondsPopup', 'showXSecondsPopup', 'afterViewXPage', 'onClickShowPopup', 'closeClickPopup', 'scrollPopup', 'overlayPopup', 'animationPopup', 'positionPopup', 'closeClickOutSide']);
-        render.innerPopup(key);
+    findKeysWithEnableTrue(obj) {
+        const trueKeys = [];
+
+        for (const key in obj) {
+            if (typeof obj[key] === 'object') {
+                const subKeys = this.findKeysWithEnableTrue(obj[key]);
+                if (subKeys.length > 0) {
+                    trueKeys.push(...subKeys.map(subKey => `${key}.${subKey}`));
+                }
+            } else if (key === 'enable' && obj[key] === true) {
+                trueKeys.push(key);
+            }
+        }
+
+        return trueKeys;
+    }
+
+    splitStringToArray(string) {
+        return string.split('.');
+    }
+
+    filterEnabledElements(array) {
+        return array.filter(item => item !== 'enable');
+    }
+
+    
+    functionPopupEnabled = () => {
+        const trueKeys = this.findKeysWithEnableTrue(this.config);
+        var temp = [];
+        var rootClass = 'closePopup';
+        trueKeys.forEach((key) => {
+            let newKey = this.filterEnabledElements(this.splitStringToArray(key));
+            let len = newKey.length;
+            if (len > 0)
+                temp.push(newKey[len - 1]);
+        })
+        temp.push(rootClass);
+        return temp;
+    }
+
+    show() {
+        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, this.functionPopupEnabled());
+        console.log(this.functionPopupEnabled());
+        render.innerPopup();
 
         const Conditions = new condition(this.config.condition);
         Conditions.getStatus();

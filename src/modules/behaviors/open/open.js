@@ -11,14 +11,13 @@ class open {
     }
 
     init () {
-        console.log(this.options);
         this.isOpenPopup();
     }
 
     isOpenPopup () {
         const process = new core();
         const methods = ['scrollToXPercent', 'visitWebAfterXSeconds', 'onClickItem', 'afterViewXPage'];
-        console.log(process.readConfig(this.options, methods, register, this.keyPopup));
+
         return process.readConfig(this.options, methods, register, this.keyPopup);
     }
 };

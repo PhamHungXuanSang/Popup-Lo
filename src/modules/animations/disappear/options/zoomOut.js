@@ -4,7 +4,7 @@ const zoomOut = (config, keyPopup) => {
     if (config.enable === true) {
         const easing = config.easing;
         const ekeyPopup = document.querySelector(`.${keyPopup}`);
-        const popupElement = ekeyPopup.querySelector('.animationPopup');
+        const popupElement = ekeyPopup.querySelector('.zoomOut');
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
@@ -26,7 +26,6 @@ const zoomOut = (config, keyPopup) => {
 
                                 const animation = popupElement.animate(popupZoomOut, timing);
                                 animation.onfinish = () => {
-                                    //console.log("Đã xong");
                                     resolve(true);
                                 };
                             });
@@ -35,7 +34,6 @@ const zoomOut = (config, keyPopup) => {
                         async function wait() {
                             let flat = await Animation();
                             if (flat == true) {
-                                //console.log("2");
                                 popupElement.style.setProperty("display", "none");
                             }
                         }

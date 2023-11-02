@@ -1,10 +1,10 @@
 'use strict';
 
-import position from "./components/position.js";
-import overlay from "./components/overlay.js";
+import positionPopup from "./components/position.js";
+import overlayPopup from "./components/overlay.js";
 
 export default {
-    position,
-    overlay
+    positionPopup,
+    overlayPopup
 }
 

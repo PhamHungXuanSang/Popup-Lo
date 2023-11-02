@@ -1,6 +1,7 @@
 'use strict';
 
-function overlay(config, keyPopup) {
+function overlayPopup(config, keyPopup) {
+  console.log(config)
   if (config.enable === true) {
     let open = false;
     const eKeyPopup = document.querySelector(`.${keyPopup}`);
@@ -27,4 +28,4 @@ function overlay(config, keyPopup) {
     });
   }
 }
-export default overlay;
+export default overlayPopup;

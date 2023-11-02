@@ -16,7 +16,6 @@ class appear {
     }
 
     init () {
-        console.log(this.options);
         if(this.isEnableAnimations()) {
             this.isOpenPopup();
         }
@@ -26,7 +25,6 @@ class appear {
         const process = new core();
         const methods = ['moveFromTop', 'horizontalMove', 'zoomIn', 'fadeIn'];
         
-        //console.log(process.readConfig(this.options, methods, register));
         return process.readConfig(this.options, methods, register, this.keyPopup);
     }
 };

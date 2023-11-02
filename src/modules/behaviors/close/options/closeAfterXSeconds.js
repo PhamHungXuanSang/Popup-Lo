@@ -3,7 +3,7 @@
 const closeAfterXSeconds = (config, keyPopup) => {
     if(config.enable == true) {
         const ekeyPopup = document.querySelector(`.${keyPopup}`);
-        const elementClosePopup= ekeyPopup.querySelector('.closeXSecondsPopup');
+        const elementClosePopup= ekeyPopup.querySelector('.closeAfterXSeconds');
         const observer = new MutationObserver(mutations => {
             let run = true;
             let timeoutId;

@@ -5,9 +5,8 @@ const horizontalMove = (config, keyPopup) => {
         const easing = config.easing;
         const screenWidth = window.innerWidth;
         const movingLength = config.movingFrom.toLowerCase() == 'left' ? -(screenWidth*(config.movingLength/100)) : (screenWidth*(config.movingLength/100));
-        console.log(movingLength);
         const ekeyPopup = document.querySelector(`.${keyPopup}`);
-        const popupElement = ekeyPopup.querySelector('.animationPopup');
+        const popupElement = ekeyPopup.querySelector('.horizontalMove');
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {

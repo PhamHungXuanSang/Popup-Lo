@@ -3,15 +3,15 @@
 import Popup from "./Popup.js";
 
 export function readConfig(listConfig) {
-    listConfig.forEach((element, key) => {
+    listConfig.forEach((element) => {
         if (element.enable == true) {
             const el = document.createElement('div');
-            el.classList.add('my-popup', element.functionName, element.functionName+key);
+            el.classList.add('my-popup', element.functionName);
             document.body.appendChild(el);
 
             let newPopup = new Popup(element, element.functionName);
             newPopup.addStyleCSS();
-            newPopup.show(element.functionName+key);
+            newPopup.show();
         }
     });
 };

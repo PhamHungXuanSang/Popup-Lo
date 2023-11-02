@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
 </head>
 
 <body class="saas-popup">
-    <button class="activePopup btnpopupTest01">Click Pop 1</button>
-    <button class="activePopup btnpopupTest02">Click Pop 2</button>
+    <button class="activePopup btnpopupTest1">Click Pop 1</button>
+    <button class="activePopup btnpopupTest2">Click Pop 2</button>
 
     <script type="module">
         import { readConfig } from "../../src/core/app.js";
-    
+        import Popup from "../../src/core/Popup.js";
+
         const config1 = {
             enable: true,
-            functionName: "Popup-form",
+            functionName: "Test1",
             namePopup: "Test-saas-popup",
             condition: {
                 existClass: {
@@ -45,22 +47,23 @@
                 },
                 close: {
                     closeAfterXSeconds: {
-                        enable: false,
+                        enable: true,
                         seconds: 3000,
                     },
                     closeClickButton: {
-                        enable: true,
+                        enable: false,
                     }
                 }
             },
             design: {
-                position: {
+                positionPopup: {
+                    enable: true,
                     width: 700,
                     height: 450,
                     x: '0',
                     y: '0',
                 },
-                overlay: {
+                overlayPopup: {
                     enable: true,
                 },
             },
@@ -108,9 +111,10 @@
             }
         };
 
+
         const config2 = {
             enable: true,
-            functionName: "Popup-form",
+            functionName: "Test2",
             namePopup: "Test-saas-popup",
             condition: {
                 existClass: {
@@ -149,13 +153,14 @@
                 }
             },
             design: {
-                position: {
-                    width: 450,
-                    height: 450,
+                positionPopup: {
+                    enable: true,
+                    width: 100,
+                    height: 100,
                     x: '100',
                     y: '100',
                 },
-                overlay: {
+                overlayPopup: {
                     enable: true,
                 },
             },
@@ -202,93 +207,10 @@
                 },
             }
         };
-        
+
         readConfig([config1, config2]);
-        
-        // let newPopup2 = new Popup(config1, "popupTest02");
-        // newPopup2.show();
     </script>
-    
-    <!-- <script type="module" src="../../src/core/test.js"></script> -->
-    <!-- <script type="module">
-        //import myJSON from 'https://static.staticsave.com/testjson/myjson.json' assert { type: "json" };
-        // async function getQuote() {
-        //     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        //     const apiUrl = 'https://saasstaging.variux.com/rest/V1/popupConfig/1';
-        //     try {
 
-        //         const response = await fetch(proxyUrl + apiUrl);
-        //         const data = await response.json();
-        //         console.log({ data });
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // }
-        // // On load
-        // getQuote();
-
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         document.getElementById("demo").innerHTML = xhttp.responseText;
-        //     }
-        // };
-        // xhttp.open("GET", "filename", true);
-        // xhttp.send();
-
-        // var xmlhttp = new XMLHttpRequest();
-        // xmhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         document.getElementById("demo").innerHTML = xmhttp.responseText;
-        //     }
-        // }; 
-
-        // var theUrl = "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/integration/admin/token";
-        // xmlhttp.open("GET", theUrl, true);
-        // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        // xmlhttp.send(JSON.stringify({"username": "tungnguyen", "password": "p7}Z/&6MG-fRg(yg"}));
-
-        // xmlhttp.onreadystatechange = () => {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         document.getElementById("demo").innerHTML = xmlhttp.responseText;
-        //     }
-        // };
-        // xmlhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
-        // xmlhttp.send();
-        
-        // fetch("https://saasstaging.variux.com/rest/V1/integration/admin/token", {
-        //     method: "POST",
-        //     body: JSON.stringify({
-        //         username: "tungnguyen",
-        //         password: "p7}Z/&6MG-fRg(yg",
-        //     }),
-        //     headers: {
-        //         "Content-type": "application/json; charset=UTF-8"
-        //     }
-        // })
-        //     .then(res => res.json())
-        //     .then(data => console.log(data));
-
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         document.getElementById("demo").innerHTML = xhttp.responseText;
-        //     }
-        // };
-        // xhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
-        // xhttp.send();
-
-        // console.log(JSON.parse("{\"namePopup\":\"testPopup\",\"enabled\":\"1\",\"behavior\":{\"open\":{\"scrollTo\":{\"enabled\":\"1\",\"value\":\"30\"},\"visitAfterSeconds\":{\"enable\":\"0\",\"value\":\"\"},\"onclick\":{\"enabled\":\"0\"}},\"close\":{\"closeAfterXSeconds\":{\"enabled\":\"0\",\"seconds\":\"\"},\"closeClickButton\":{\"enable\":\"0\"}}},\"design\":{\"position\":{\"width\":\"500\",\"height\":\"500\",\"x\":\"right\",\"y\":\"top\"},\"overlay\":{\"enable\":\"1\"}},\"animation\":{\"appear\":{\"enableAnimation\":\"1\",\"moveFromTop\":{\"enabled\":\"1\",\"duration\":\"300\",\"easing\":\"ease\",\"movingLength\":\"300\"},\"horizontal\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\",\"movingFrom\":\"left\",\"movingLength\":\"\"},\"zoomin\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\",\"fromPercent\":\"\"},\"fadein\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\"}},\"disapear\":{\"enableAnimation\":\"1\",\"zoomout\":{\"enabled\":\"1\",\"duration\":\"10\",\"easing\":\"ease-in-out\"},\"fadeout\":{\"enabled\":\"0\",\"duration\":\"\",\"easing\":\"ease\"}}}}"));
-
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function () {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         document.getElementById("demo").innerHTML = xhttp.responseText;
-        //     }
-        // };
-        // xhttp.open("GET", "https://saasstaging.variux.com/rest/V1/popupConfig/1", true);
-        // xhttp.send();
-    </script> -->
 </body>
 
 </html>

@@ -4,7 +4,7 @@ const fadeOut = (config, keyPopup) => {
     if (config.enable === true) {
         const easing = config.easing;
         const ekeyPopup = document.querySelector(`.${keyPopup}`);
-        const popupElement = ekeyPopup.querySelector('.animationPopup');
+        const popupElement = ekeyPopup.querySelector('.fadeOut');
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
