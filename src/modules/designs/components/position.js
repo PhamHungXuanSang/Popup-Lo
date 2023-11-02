@@ -2,53 +2,53 @@
 
 const positionPopup = (config, keyPopup) => {
     console.log(config)
-    if (config.enable === true) {
-        if (config.width != null && config.height != null) {
-            var browserWidth = document.documentElement.clientWidth;
-            var browserHeight = document.documentElement.clientHeight;
-            var popupWidth = config.width;
-            var popupHeight = config.height;
-            
-            if(browserWidth <= 360) {
-                popupWidth *= 0.4;
-                popupHeight *= 0.4;
-            } else if(browserWidth <= 480) {
-                popupWidth *= 0.5;
-                popupHeight *= 0.5;
-            } else if(browserWidth <= 640) {
-                popupWidth *= 0.7;
-                popupHeight *= 0.7;
-            } else if(browserWidth <= 768) {
-                popupWidth *= 0.8;
-                popupHeight *= 0.8;
-            }
-    
-            var frameWidth = browserWidth - popupWidth;
-            var frameHeight = browserHeight - popupHeight;
-    
-            var ratioWidth = (frameWidth/browserWidth) * 100;
-            var ratioHeight = (frameHeight/browserHeight) * 100;
-    
-            var moveDistanceByBrowserWidth = browserWidth * (config.x/100);
-            var moveDistanceByBrowserHeight = browserHeight * (config.y/100);
-    
-            var moveDistanceByFrameWidth = moveDistanceByBrowserWidth * (ratioWidth/100);
-            var moveDistanceByFrameHeight = moveDistanceByBrowserHeight * (ratioHeight/100);
-    
-            
-            // Lấy ra element bọc popup
-            const eKeyPopup = document.querySelector(`.${keyPopup}`);
-            let popupElement = eKeyPopup.querySelector('.positionPopup');
-            console.log(popupElement);
-            
-            popupElement.style.setProperty("width", `${popupWidth}px`, "important");
-            popupElement.style.setProperty("height", `${popupHeight}px`, "important");
-    
-            popupElement.style.setProperty("left", `${moveDistanceByFrameWidth}px`, "important");
-            popupElement.style.setProperty("top", `${moveDistanceByFrameHeight}px`, "important");
+
+    if (config.width != null && config.height != null) {
+        var browserWidth = document.documentElement.clientWidth;
+        var browserHeight = document.documentElement.clientHeight;
+        var popupWidth = config.width;
+        var popupHeight = config.height;
+
+        if (browserWidth <= 360) {
+            popupWidth *= 0.4;
+            popupHeight *= 0.4;
+        } else if (browserWidth <= 480) {
+            popupWidth *= 0.5;
+            popupHeight *= 0.5;
+        } else if (browserWidth <= 640) {
+            popupWidth *= 0.7;
+            popupHeight *= 0.7;
+        } else if (browserWidth <= 768) {
+            popupWidth *= 0.8;
+            popupHeight *= 0.8;
         }
+
+        var frameWidth = browserWidth - popupWidth;
+        var frameHeight = browserHeight - popupHeight;
+
+        var ratioWidth = (frameWidth / browserWidth) * 100;
+        var ratioHeight = (frameHeight / browserHeight) * 100;
+
+        var moveDistanceByBrowserWidth = browserWidth * (config.x / 100);
+        var moveDistanceByBrowserHeight = browserHeight * (config.y / 100);
+
+        var moveDistanceByFrameWidth = moveDistanceByBrowserWidth * (ratioWidth / 100);
+        var moveDistanceByFrameHeight = moveDistanceByBrowserHeight * (ratioHeight / 100);
+
+
+        // Lấy ra element bọc popup
+        const eKeyPopup = document.querySelector(`.${keyPopup}`);
+        let popupElement = eKeyPopup.querySelector('.positionPopup');
+        console.log(popupElement);
+
+        popupElement.style.setProperty("width", `${popupWidth}px`, "important");
+        popupElement.style.setProperty("height", `${popupHeight}px`, "important");
+
+        popupElement.style.setProperty("left", `${moveDistanceByFrameWidth}px`, "important");
+        popupElement.style.setProperty("top", `${moveDistanceByFrameHeight}px`, "important");
     }
 }
+
 
 export default positionPopup;
 

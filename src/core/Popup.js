@@ -53,7 +53,7 @@ class Popup {
     
     functionPopupEnabled = () => {
         const trueKeys = this.findKeysWithEnableTrue(this.config);
-        var temp = [];
+        var temp = ['positionPopup'];
         var rootClass = 'closePopup';
         trueKeys.forEach((key) => {
             let newKey = this.filterEnabledElements(this.splitStringToArray(key));
