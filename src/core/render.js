@@ -10,13 +10,14 @@ class RenderPopup {
 
     innerPopup (key) {
         const popup =  document.createElement("div");
+        popup.style.setProperty("display", `none`);
 
         for (let feature of this.classList) {
             popup.classList.add(feature);
         }
 
         popup.innerHTML = this.html;
-         popup.style.setProperty("position", `fixed`, "important");
+        popup.style.setProperty("position", `fixed`, "important");
 
         const elementIDPopup = document.querySelector(`.${this.idPopup}`);
         elementIDPopup.appendChild(popup);

@@ -7,7 +7,7 @@
     <title>Demo Function Form</title>
 </head>
 
-<body class="saas-popup">
+<body class="saas-popup" style="height: 2000px;">
     <button class="activePopup btnpopupTest1">Click Pop 1</button>
     <button class="activePopup btnpopupTest2">Click Pop 2</button>
 
@@ -17,28 +17,28 @@
 
         const config1 = {
             enable: true,
-            functionName: "Test1",
+            functionName: "popupTest1",
             namePopup: "Test-saas-popup",
             condition: {
                 existClass: {
                     enable: true,
                 },
                 existCookie: {
-                    enable: false,
+                    enable: true,
                 }
             },
             behaviors: {
                 open: {
                     scrollToXPercent: {
                         enable: false,
-                        percent: 50,
+                        percent: 10,
                     },
                     visitWebAfterXSeconds: {
-                        enable: true,
+                        enable: false,
                         seconds: 3000,
                     },
                     onClickItem: {
-                        enable: false,
+                        enable: true,
                     },
                     afterViewXPage: {
                         enable: false,
@@ -47,19 +47,19 @@
                 },
                 close: {
                     closeAfterXSeconds: {
-                        enable: true,
+                        enable: false,
                         seconds: 3000,
                     },
                     closeClickButton: {
-                        enable: false,
+                        enable: true,
                     }
                 }
             },
             design: {
                 positionPopup: {
-                    width: 700,
-                    height: 450,
-                    x: 50,
+                    width: 400,
+                    height: 400,
+                    x: 20,
                     y: 50,
                 },
                 overlayPopup: {
@@ -73,10 +73,10 @@
                         enable: false,
                         duration: 400,
                         easing: "ease-in-out",
-                        movingLength: 10,
+                        movingLength: 100,
                     },
                     horizontalMove: {
-                        enable: true,
+                        enable: false,
                         duration: 400,
                         easing: "ease-in",
                         movingFrom: 'right',
@@ -89,7 +89,7 @@
                         fromPercent: 80,
                     },
                     fadeIn: {
-                        enable: false,
+                        enable: true,
                         duration: 300,
                         easing: "ease-in",
                     }
@@ -110,10 +110,9 @@
             }
         };
 
-
         const config2 = {
             enable: true,
-            functionName: "Test2",
+            functionName: "popupTest2",
             namePopup: "Test-saas-popup",
             condition: {
                 existClass: {
@@ -130,11 +129,11 @@
                         percent: 50,
                     },
                     visitWebAfterXSeconds: {
-                        enable: true,
-                        seconds: 10000,
+                        enable: false,
+                        seconds: 8000,
                     },
                     onClickItem: {
-                        enable: false,
+                        enable: true,
                     },
                     afterViewXPage: {
                         enable: false,
@@ -209,7 +208,5 @@
 
         readConfig([config1, config2]);
     </script>
-
 </body>
-
 </html>

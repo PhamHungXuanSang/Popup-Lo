@@ -16,7 +16,7 @@ const scrollToXPercent = (config, keyPopup) => {
 
         if (currentScrollPosition >= (config.percent / 100) * totalHeightOfPage && checkedScroll === null) {
             const ekeyPopup = document.querySelector(`.${keyPopup}`);
-            const elementPopup = ekeyPopup.querySelector(".scrollPopup");
+            const elementPopup = ekeyPopup.querySelector(".scrollToXPercent");
             elementPopup.classList.add("active");
             sessionStorage.setItem(keyPopup, 1);
         }

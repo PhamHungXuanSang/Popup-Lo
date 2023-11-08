@@ -54,24 +54,25 @@ class Popup {
     functionPopupEnabled = () => {
         const trueKeys = this.findKeysWithEnableTrue(this.config);
         var temp = ['positionPopup'];
-        var rootClass = 'closePopup';
         trueKeys.forEach((key) => {
             let newKey = this.filterEnabledElements(this.splitStringToArray(key));
             let len = newKey.length;
             if (len > 0)
                 temp.push(newKey[len - 1]);
         })
-        temp.push(rootClass);
         return temp;
     }
 
     show() {
         const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, this.functionPopupEnabled());
-        console.log(this.functionPopupEnabled());
         render.innerPopup();
 
         const Conditions = new condition(this.config.condition);
         Conditions.getStatus();
+        if(Conditions.getStatus() === false) {
+            console.log("Ngung");
+            return;
+        };
         if (Conditions.getStatus() === true && this.config.enable === true) {
             new animations(this.config.animations, this.keyPopup);
             new behaviors(this.config.behaviors, this.keyPopup);
