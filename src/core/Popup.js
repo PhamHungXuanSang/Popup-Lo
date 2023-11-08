@@ -5,12 +5,13 @@ import condition from "../modules/conditions/condition.js";
 import designPopup from "../modules/designs/design.js";
 import animations from "../modules/animations/animation.js";
 import RenderPopup from "./render.js";
-import htmlPopup from "./exam.js";
+// import htmlPopup from "./exam.js";
 
 class Popup {
-    constructor(userconfig, keyPopup) {
+    constructor(userconfig, keyPopup, fileHTML) {
         this.config = userconfig;
         this.keyPopup = keyPopup;
+        this.fileHTML = fileHTML;
     }
 
     addStyleCSS() {
@@ -19,6 +20,7 @@ class Popup {
             const link = document.createElement('link');
 
             link.rel = 'stylesheet';
+            link.type = 'text/css';
             link.href = "https://phamhungxuansang.github.io/Popup-Lo/src/core/core.css";
 
             head.appendChild(link);
@@ -63,16 +65,14 @@ class Popup {
         return temp;
     }
 
+
+
     show() {
-        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, this.functionPopupEnabled());
+        const render = new RenderPopup("my-popup", this.fileHTML, this.keyPopup, this.functionPopupEnabled());
         render.innerPopup();
 
         const Conditions = new condition(this.config.condition);
         Conditions.getStatus();
-        if(Conditions.getStatus() === false) {
-            console.log("Ngung");
-            return;
-        };
         if (Conditions.getStatus() === true && this.config.enable === true) {
             new animations(this.config.animations, this.keyPopup);
             new behaviors(this.config.behaviors, this.keyPopup);

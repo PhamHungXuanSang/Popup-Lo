@@ -8,7 +8,7 @@ class RenderPopup {
         this.classList = classList
     }
 
-    innerPopup (key) {
+    innerPopup () {
         const popup =  document.createElement("div");
         popup.style.setProperty("display", `none`);
 
@@ -16,11 +16,15 @@ class RenderPopup {
             popup.classList.add(feature);
         }
 
-        popup.innerHTML = this.html;
-        popup.style.setProperty("position", `fixed`, "important");
+        fetch(this.html)
+            .then(response => response.text())
+            .then(content => {
+                popup.innerHTML = content;
+                popup.style.setProperty("position", `fixed`, "!important");
 
-        const elementIDPopup = document.querySelector(`.${this.idPopup}`);
-        elementIDPopup.appendChild(popup);
+                const elementIDPopup = document.querySelector(`.${this.idPopup}`);
+                elementIDPopup.appendChild(popup);
+            })
     }
 };
 

@@ -6,18 +6,12 @@ import core from "../../core/core.js";
 class condition {
     constructor(options) {
         this.options = options; 
-        this.init();
-    }
-
-    init () {
-        const process = new core();
-        const methods = ['existClass', 'existCookie'];
-        process.readConfig(this.options, methods, register);
     }
 
     getStatus () {
         const process = new core();
         const methods = ['existClass', 'existCookie'];
+        process.activeConditions(this.options, methods);
         return process.readConfig(this.options, methods, register);
     }
 };
