@@ -1,3 +1,4 @@
+const htmlPopup = `
 <div class="popup">
 <div class="img-wrapper"><img src="https://png.pngtree.com/thumb_back/fw800/background/20221116/pngtree-isolated-white-background-with-a-vertical-red-gift-bow-photo-image_677817.jpg" alt="Anh"></div>
 <div class="content">
@@ -13,3 +14,6 @@
     <button class="refuse btnClosePopup">No, thanks</button>
 </div>
 </div>
+`;
+
+export default htmlPopup;

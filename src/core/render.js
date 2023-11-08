@@ -16,15 +16,11 @@ class RenderPopup {
             popup.classList.add(feature);
         }
 
-        fetch(this.html)
-            .then(response => response.text())
-            .then(content => {
-                popup.innerHTML = content;
-                popup.style.setProperty("position", `fixed`, "!important");
+        popup.innerHTML = this.html;
+        popup.style.setProperty("position", `fixed`, "important");
 
-                const elementIDPopup = document.querySelector(`.${this.idPopup}`);
-                elementIDPopup.appendChild(popup);
-            })
+        const elementIDPopup = document.querySelector(`.${this.idPopup}`);
+        elementIDPopup.appendChild(popup);
     }
 };
 

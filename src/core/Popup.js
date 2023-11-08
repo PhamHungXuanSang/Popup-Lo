@@ -5,7 +5,7 @@ import condition from "../modules/conditions/condition.js";
 import designPopup from "../modules/designs/design.js";
 import animations from "../modules/animations/animation.js";
 import RenderPopup from "./render.js";
-// import htmlPopup from "./exam.js";
+import htmlPopup from "./exam.js";
 
 class Popup {
     constructor(userconfig, keyPopup, fileHTML) {
@@ -68,7 +68,7 @@ class Popup {
 
 
     show() {
-        const render = new RenderPopup("my-popup", this.fileHTML, this.keyPopup, this.functionPopupEnabled());
+        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, this.functionPopupEnabled());
         render.innerPopup();
 
         const Conditions = new condition(this.config.condition);
