@@ -12,7 +12,7 @@ class closePopup {
 
     init () {
         const process = new core();
-        const methods = ['closeAfterXSeconds', 'closeClickButton', 'closeClickOutSide'];
+        const methods = ['closeAfterXSeconds', 'closeClickButton', 'closeClickOutside'];
         process.readConfig(this.options, methods, register, this.keyPopup);
     }
 }

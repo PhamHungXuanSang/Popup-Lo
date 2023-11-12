@@ -11,9 +11,8 @@ const fadeOut = (config, keyPopup) => {
                     if (!popupElement.classList.contains("active")) {
                         popupElement.style.setProperty("display", "block", "important");
                         function Animation() {
-                            //console.log("1");
                             return new Promise((resolve) => {
-                                const popupZoomOut = [
+                                const popupFadeOut = [
                                     { opacity: 1 },
                                     { opacity: 0 }
                                 ];
@@ -24,7 +23,7 @@ const fadeOut = (config, keyPopup) => {
                                     easing: easing,
                                 };
 
-                                const animation = popupElement.animate(popupZoomOut, timing);
+                                const animation = popupElement.animate(popupFadeOut, timing);
                                 animation.onfinish = () => {
                                     resolve(true);
                                 };
@@ -34,7 +33,6 @@ const fadeOut = (config, keyPopup) => {
                         async function wait() {
                             let flat = await Animation();
                             if (flat == true) {
-                                //console.log("2");
                                 popupElement.style.setProperty("display", "none");
                             }
                         }

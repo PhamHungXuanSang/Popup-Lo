@@ -23,7 +23,7 @@ class disappear {
     isClosePopup () {
         const process = new core();
         
-        const methods = ['zoomOut', 'fadeOut'];
+        const methods = ['zoomOut', 'fadeOut', 'moveToTop', 'horizontalMove'];
         process.readConfig(this.options, methods, register, this.keyPopup);
     }
 }

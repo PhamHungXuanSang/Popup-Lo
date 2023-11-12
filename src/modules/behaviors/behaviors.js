@@ -17,4 +17,4 @@ class behaviours {
     }
 };
 
-export  default behaviours;
+export default behaviours;

@@ -1,10 +1,12 @@
 'use strict';
 
-const zoomOut = (config, keyPopup) => {
+const horizontalMove = (config, keyPopup) => {
     if (config.enable === true) {
         const easing = config.easing;
+        const screenWidth = window.innerWidth;
+        const movingLength = config.movingTo.toLowerCase() == 'left' ? -(screenWidth*(config.movingLength/100)) : (screenWidth*(config.movingLength/100));
         const ekeyPopup = document.querySelector(`.${keyPopup}`);
-        const popupElement = ekeyPopup.querySelector('.zoomOut');
+        const popupElement = ekeyPopup.querySelector('.horizontalMove');
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
@@ -12,9 +14,9 @@ const zoomOut = (config, keyPopup) => {
                         popupElement.style.setProperty("display", "block", "important");
                         function Animation() {
                             return new Promise((resolve) => {
-                                const popupZoomOut = [
-                                    { transform: 'scale(1)' },
-                                    { transform: 'scale(0)' }
+                                const popupSliding = [
+                                    { transform: "translateX(0px)", opacity: 1 },
+                                    { transform: `translateX(${movingLength}px)`, opacity: 0 },
                                 ];
 
                                 const timing = {
@@ -23,7 +25,7 @@ const zoomOut = (config, keyPopup) => {
                                     easing: easing,
                                 };
 
-                                const animation = popupElement.animate(popupZoomOut, timing);
+                                const animation = popupElement.animate(popupSliding, timing);
                                 animation.onfinish = () => {
                                     resolve(true);
                                 };
@@ -41,11 +43,11 @@ const zoomOut = (config, keyPopup) => {
                 }
             });
         });
-
+    
         observer.observe(popupElement, {
             attributes: true,
         });
     }
 }
 
-export default zoomOut;
+export default horizontalMove;
