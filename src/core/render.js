@@ -11,7 +11,7 @@ class RenderPopup {
     innerPopup (key) {
         const popup =  document.createElement("div");
         popup.style.setProperty("display", `none`);
-        popup.style.setProperty("z-index", `1030`);
+        popup.style.setProperty("z-index", `1030`, "important");
 
         for (let feature of this.classList) {
             popup.classList.add(feature);

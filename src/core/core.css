@@ -1,6 +1,6 @@
 .my-popup {
     position: absolute;
-    z-index: 10 !important;
+    z-index: 1030 !important;
 }
 
 .active {
