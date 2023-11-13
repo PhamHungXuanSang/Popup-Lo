@@ -18,19 +18,21 @@ const closeClickOutside = (config, keyPopup) => {
             return null;
         }
 
-        let element = document.querySelector(".closeClickOutside");
-        document.addEventListener("click", (e) => {
-            if (!element.classList.contains("active")) {
-                return;
-            } else {
-                if(e.target != document.querySelector(".btnpopupTest1")) {
-                    if(findCloseClickOutsideParent(e) == true) {
-                        return;
-                    } else if(findCloseClickOutsideParent(e) == null) {
-                        element.classList.remove("active");
+        let elements = document.querySelectorAll(".closeClickOutside");
+        elements.forEach((element, key) => {
+            document.addEventListener("click", (e) => {
+                if (!element.classList.contains("active")) {
+                    return;
+                } else {
+                    if(e.target != document.querySelector(".btnpopupTest" + (key+1))) {
+                        if(findCloseClickOutsideParent(e) == true) {
+                            return;
+                        } else if(findCloseClickOutsideParent(e) == null) {
+                            element.classList.remove("active");
+                        }
                     }
                 }
-            }
+            });
         });
     }
 };
