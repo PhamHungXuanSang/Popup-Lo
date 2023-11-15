@@ -3,6 +3,7 @@
 import Popup from "./Popup.js";
 
 export function readConfig(listConfig) {
+    
     listConfig.forEach((element) => {
         if (element.enable == true) {
             const el = document.createElement('div');
