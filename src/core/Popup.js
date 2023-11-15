@@ -5,12 +5,13 @@ import condition from "../modules/conditions/condition.js";
 import designPopup from "../modules/designs/design.js";
 import animations from "../modules/animations/animation.js";
 import RenderPopup from "./render.js";
-import htmlPopup from "./exam.js";
+//import htmlPopup from "./exam.js";
 
 class Popup {
-    constructor(userconfig, keyPopup) {
+    constructor(userconfig, keyPopup, html) {
         this.config = userconfig;
         this.keyPopup = keyPopup;
+        this.html = html;
     }
 
     addStyleCSS() {
@@ -64,13 +65,12 @@ class Popup {
     }
 
     show() {
-        const render = new RenderPopup("my-popup", htmlPopup, this.keyPopup, this.functionPopupEnabled());
+        const render = new RenderPopup("my-popup", this.html, this.keyPopup, this.functionPopupEnabled());
         render.innerPopup();
 
         const Conditions = new condition(this.config.condition);
         Conditions.getStatus();
         if(Conditions.getStatus() === false) {
-            console.log("Ngung");
             return;
         };
         if (Conditions.getStatus() === true && this.config.enable === true) {

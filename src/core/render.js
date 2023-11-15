@@ -11,6 +11,7 @@ class RenderPopup {
     innerPopup (key) {
         const popup =  document.createElement("div");
         popup.style.setProperty("display", `none`);
+        popup.style.setProperty('background-color', '#fff', "important");
 
         for (let feature of this.classList) {
             popup.classList.add(feature);
@@ -24,4 +25,4 @@ class RenderPopup {
     }
 };
 
-export default RenderPopup; 
+export default RenderPopup;
