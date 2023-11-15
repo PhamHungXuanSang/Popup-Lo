@@ -3,13 +3,14 @@
 import Popup from "./Popup.js";
 
 export function readConfig(listConfig) {
+    
     listConfig.forEach((element) => {
         if (element.enable == true) {
             const el = document.createElement('div');
             el.classList.add('my-popup', element.functionName);
             document.body.appendChild(el);
 
-            let newPopup = new Popup(element, element.functionName, "file_html");
+            let newPopup = new Popup(element, element.functionName, "test.html", "StyleTem.css");
             newPopup.addStyleCSS();
             newPopup.show();
         }
