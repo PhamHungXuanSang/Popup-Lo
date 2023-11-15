@@ -13,18 +13,18 @@ class Popup {
         this.html = html;
     }
 
-    addStyleCSS() {
-        document.addEventListener('DOMContentLoaded', () => {
-            const head = document.querySelector('head');
-            const link = document.createElement('link');
+    // addStyleCSS() {
+    //     document.addEventListener('DOMContentLoaded', () => {
+    //         const head = document.querySelector('head');
+    //         const link = document.createElement('link');
 
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = ""; //core style css
+    //         link.rel = 'stylesheet';
+    //         link.type = 'text/css';
+    //         link.href = ""; //core style css
 
-            head.appendChild(link);
-        });
-    }
+    //         head.appendChild(link);
+    //     });
+    // }
 
     findKeysWithEnableTrue(obj) {
         const trueKeys = [];

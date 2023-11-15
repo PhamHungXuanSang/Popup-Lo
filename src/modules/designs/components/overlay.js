@@ -1,7 +1,6 @@
 'use strict';
 
 function overlayPopup(config, keyPopup) {
-  console.log(config)
   if (config.enable === true) {
     let open = false;
     const eKeyPopup = document.querySelector(`.${keyPopup}`);

@@ -11,6 +11,382 @@
     <button class="activePopup btnpopupTest1">Click Pop 1</button>
     <button class="activePopup btnpopupTest2">Click Pop 2</button>
 
-    <script src='../../dist/newfile.js'></script>
+    <!-- <script src='../../dist/newfile.js'></script> -->
+    <script type="module">
+        import { readConfig } from "../../src/core/app.js";
+        import Popup from "../../src/core/Popup.js";
+
+        const config1 = {
+            enable: true,
+            functionName: "popupTest1",
+            html: `<div class="popup">
+                    <div class="img-wrapper"><img src="https://png.pngtree.com/thumb_back/fw800/background/20221116/pngtree-isolated-white-background-with-a-vertical-red-gift-bow-photo-image_677817.jpg" alt="Anh"></div>
+                    <div class="content">
+                        <p class="popup-heading">Save up to</p>
+                        <h1 class="popup-offer">30% OFF</h1>
+                        <p class="popup-desc">In your next holiday offer</p>
+                    
+                        <form action="POST" class="popup-form">
+                            <input class="email" type="email" placeholder="Please enter your email">
+                            <input class="submit" type="button" value="Get it now">
+                        </form>
+                    
+                        <button class="refuse btnClosePopup">No, thanks</button>
+                    </div>
+                </div>`,
+            namePopup: "Test-saas-popup",
+            condition: {
+                existClass: {
+                    enable: true,
+                },
+                existCookie: {
+                    enable: false,
+                }
+            },
+            behaviors: {
+                open: {
+                    scrollToXPercent: {
+                        enable: false,
+                        percent: 50,
+                    },
+                    visitWebAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000,
+                    },
+                    onClickItem: {
+                        enable: true,
+                    },
+                    afterViewXPage: {
+                        enable: false,
+                        NumPage: 3,
+                    }
+                },
+                close: {
+                    closeAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000,
+                    },
+                    closeClickButton: {
+                        enable: true,
+                    },
+                    closeClickOutside: {
+                        enable: true,
+                    },
+                }
+            },
+            design: {
+                positionPopup: {
+                    width: 500,
+                    height: 400,
+                    x: 50,
+                    y: 50,
+                },
+                overlayPopup: {
+                    enable: true,
+                },
+            },
+            animations: {
+                appear: {
+                    enableAnimation: true,
+                    moveFromTop: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingLength: 100,
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingFrom: 'right',
+                        movingLength: 10,
+                    },
+                    zoomIn: {
+                        enable: true,
+                        duration: 300,
+                        easing: "linear",
+                        fromPercent: 80,
+                    },
+                    fadeIn: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-in",
+                    }
+                },
+                disappear: {
+                    enableAnimation: true,
+                    zoomOut: {
+                        enable: false,
+                        duration: 200,
+                        easing: "ease-out",
+                    },
+                    fadeOut: {
+                        enable: true,
+                        duration: 500,
+                        easing: "ease-out",
+                    },
+                    moveToTop: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-out",
+                        movingLength: 50,
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-out",
+                        movingTo: 'right',
+                        movingLength: 20,
+                    },
+                },
+            }
+        };
+
+        const config2 = {
+            enable: false,
+            functionName: "popupTest2",
+            html: `<div class="popup">
+                    <div style="display: flex;align-items: center; justify-content: center;">
+                        <img style="width: 48px; height: 48px; margin: 0 16px;" src="https://ich.edu.vn/App_Files/Upload/2019/icon-thanh-cong.png" alt="icon">
+                        <p>Đã thanh toán thành công</p>
+                        <button class="refuse btnClosePopup">No, thanks</button>
+                    </div>
+                </div>`,
+            namePopup: "Test-saas-popup",
+            condition: {
+                existClass: {
+                    enable: true,
+                },
+                existCookie: {
+                    enable: false,
+                }
+            },
+            behaviors: {
+                open: {
+                    scrollToXPercent: {
+                        enable: false,
+                        percent: 50,
+                    },
+                    visitWebAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000,
+                    },
+                    onClickItem: {
+                        enable: true,
+                    },
+                    afterViewXPage: {
+                        enable: false,
+                        NumPage: 3,
+                    }
+                },
+                close: {
+                    closeAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000,
+                    },
+                    closeClickButton: {
+                        enable: true,
+                    },
+                    closeClickOutside: {
+                        enable: true,
+                    },
+                }
+            },
+            design: {
+                positionPopup: {
+                    width: 500,
+                    height: 400,
+                    x: 0,
+                    y: 50,
+                },
+                overlayPopup: {
+                    enable: true,
+                },
+            },
+            animations: {
+                appear: {
+                    enableAnimation: true,
+                    moveFromTop: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingLength: 100,
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingFrom: 'right',
+                        movingLength: 10,
+                    },
+                    zoomIn: {
+                        enable: true,
+                        duration: 300,
+                        easing: "linear",
+                        fromPercent: 80,
+                    },
+                    fadeIn: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-in",
+                    }
+                },
+                disappear: {
+                    enableAnimation: true,
+                    zoomOut: {
+                        enable: false,
+                        duration: 200,
+                        easing: "ease-out",
+                    },
+                    fadeOut: {
+                        enable: true,
+                        duration: 500,
+                        easing: "ease-out",
+                    },
+                    moveToTop: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-out",
+                        movingLength: 50,
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-out",
+                        movingTo: 'right',
+                        movingLength: 20,
+                    },
+                },
+            }
+        };
+
+        const config3 = {
+            enable: true,
+            functionName: "popupTest3",
+            html: `<div class="popup">
+                    <div class="img-wrapper"><img src="https://png.pngtree.com/thumb_back/fw800/background/20221116/pngtree-isolated-white-background-with-a-vertical-red-gift-bow-photo-image_677817.jpg" alt="Anh"></div>
+                    <div class="content">
+                        <p class="popup-heading">Save up to</p>
+                        <h1 class="popup-offer">30% OFF</h1>
+                        <p class="popup-desc">In your next holiday offer</p>
+                    
+                        <form action="POST" class="popup-form">
+                            <input class="email" type="email" placeholder="Please enter your email">
+                            <input class="submit" type="button" value="Get it now">
+                        </form>
+                    
+                        <button class="refuse btnClosePopup">No, thanks</button>
+                    </div>
+                </div>`,
+            namePopup: "Test-saas-popup",
+            condition: {
+                existClass: {
+                    enable: true,
+                },
+                existCookie: {
+                    enable: false,
+                }
+            },
+            behaviors: {
+                open: {
+                    scrollToXPercent: {
+                        enable: false,
+                        percent: 20,
+                    },
+                    visitWebAfterXSeconds: {
+                        enable: true,
+                        seconds: 3000,
+                    },
+                    onClickItem: {
+                        enable: false,
+                    },
+                    afterViewXPage: {
+                        enable: false,
+                        NumPage: 3,
+                    }
+                },
+                close: {
+                    closeAfterXSeconds: {
+                        enable: false,
+                        seconds: 3000,
+                    },
+                    closeClickButton: {
+                        enable: true,
+                    },
+                    closeClickOutside: {
+                        enable: true,
+                    },
+                }
+            },
+            design: {
+                positionPopup: {
+                    width: 500,
+                    height: 400,
+                    x: 50,
+                    y: 50,
+                },
+                overlayPopup: {
+                    enable: true,
+                },
+            },
+            animations: {
+                appear: {
+                    enableAnimation: true,
+                    moveFromTop: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingLength: 100,
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-in",
+                        movingFrom: 'right',
+                        movingLength: 10,
+                    },
+                    zoomIn: {
+                        enable: true,
+                        duration: 300,
+                        easing: "linear",
+                        fromPercent: 80,
+                    },
+                    fadeIn: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-in",
+                    }
+                },
+                disappear: {
+                    enableAnimation: true,
+                    zoomOut: {
+                        enable: false,
+                        duration: 200,
+                        easing: "ease-out",
+                    },
+                    fadeOut: {
+                        enable: true,
+                        duration: 500,
+                        easing: "ease-out",
+                    },
+                    moveToTop: {
+                        enable: false,
+                        duration: 300,
+                        easing: "ease-out",
+                        movingLength: 50,
+                    },
+                    horizontalMove: {
+                        enable: false,
+                        duration: 400,
+                        easing: "ease-out",
+                        movingTo: 'right',
+                        movingLength: 20,
+                    },
+                },
+            }
+        };
+
+        readConfig([config1, config2, config3]);
+    </script>
 </body>
 </html>
