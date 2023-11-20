@@ -17,4 +17,4 @@ export function readConfig(listConfig) {
     });
 };
 
-eval("");
+readConfig(window.config);
