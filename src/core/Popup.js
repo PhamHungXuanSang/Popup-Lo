@@ -16,13 +16,9 @@ class Popup {
     // addStyleCSS() {
     //     document.addEventListener('DOMContentLoaded', () => {
     //         const head = document.querySelector('head');
-    //         const link = document.createElement('link');
-
-    //         link.rel = 'stylesheet';
-    //         link.type = 'text/css';
-    //         link.href = ""; //core style css
-
-    //         head.appendChild(link);
+    //         const style = document.createElement('style');
+    //         style.textContent = this.css;
+    //         head.appendChild(style);
     //     });
     // }
 

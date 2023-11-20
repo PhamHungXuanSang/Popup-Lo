@@ -23,7 +23,7 @@ class RenderPopup {
         let link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = '../../src/core/core.css'
+        link.href = 'http://localhost:5500/src/core/core.css'
         document.head.appendChild(link);
 
         const elementIDPopup = document.querySelector(`.${this.idPopup}`);
