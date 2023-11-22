@@ -2,19 +2,19 @@
 
 
 const afterViewXPage = (config, keyPopup) => {
-    if (config.enable == true) {
-        var pageViews = localStorage.getItem(`${keyPopup}`);
-
-        if (pageViews == null) {
-            pageViews = 0;
-        }
+    if (config.enable === true) {
+        let pageViews = localStorage.getItem(`${keyPopup}`) || 0;
         pageViews++;
+
         localStorage.setItem(`${keyPopup}`, pageViews);
-        if (pageViews === config.NumPage) {
-            const ekeyPopup = document.querySelector(`.${keyPopup}`);
+
+        if (ekeyPopup) {
             const elementViewXPage = ekeyPopup.querySelector('.afterViewXPage');
-            elementViewXPage.classList.add('active');
-        }
+
+            if (elementViewXPage && !elementViewXPage.classList.contains('active')) {
+                elementViewXPage.classList.add('active');
+            }
+        } 
     }
 }
 

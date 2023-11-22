@@ -1,9 +1,10 @@
 'use strict';
 
 class RenderPopup {
-    constructor(className, html, idPopup, classList) {
+    constructor(className, html, styleCss, idPopup, classList) {
         this.className = className;
         this.html = html;
+        this.styleCss = styleCss;
         this.idPopup = idPopup;
         this.classList = classList
     }
@@ -20,11 +21,17 @@ class RenderPopup {
 
         popup.style.setProperty("position", `fixed`, "important");
 
-        let link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'http://localhost:5500/src/core/core.css'
-        document.head.appendChild(link);
+        // let link = document.createElement('link');
+        // link.rel = 'stylesheet';
+        // link.type = 'text/css';
+        // link.href = 'http://localhost:5500/src/core/core.css'
+        // document.head.appendChild(link);
+
+        let styleTag = document.createElement("style");
+        document.head.appendChild(styleTag);
+        let cssStyles = this.styleCss;
+
+        styleTag.appendChild(document.createTextNode(cssStyles));
 
         const elementIDPopup = document.querySelector(`.${this.idPopup}`);
         elementIDPopup.appendChild(popup);

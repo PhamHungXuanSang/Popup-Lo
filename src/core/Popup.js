@@ -7,20 +7,12 @@ import animations from "../modules/animations/animation.js";
 import RenderPopup from "./render.js";
 
 class Popup {
-    constructor(userconfig, keyPopup, html) {
+    constructor(userconfig, keyPopup, html, styleCss) {
         this.config = userconfig;
         this.keyPopup = keyPopup;
         this.html = html;
+        this.styleCss = styleCss;
     }
-
-    // addStyleCSS() {
-    //     document.addEventListener('DOMContentLoaded', () => {
-    //         const head = document.querySelector('head');
-    //         const style = document.createElement('style');
-    //         style.textContent = this.css;
-    //         head.appendChild(style);
-    //     });
-    // }
 
     findKeysWithEnableTrue(obj) {
         const trueKeys = [];
@@ -63,7 +55,7 @@ class Popup {
 
 
     show() {
-        const render = new RenderPopup("my-popup", this.html, this.keyPopup, this.functionPopupEnabled());
+        const render = new RenderPopup("my-popup", this.html, this.styleCss, this.keyPopup, this.functionPopupEnabled());
         render.innerPopup();
 
         const Conditions = new condition(this.config.condition);

@@ -1,7 +1,6 @@
 'use strict';
 
 import Popup from "./Popup.js";
-import { coreStyle } from "./coreStyle.js";
 
 const existPopupBody = (config) => {
     if (config.enable === true) {
@@ -19,8 +18,7 @@ export function readConfig(listConfig) {
                 el.classList.add('my-popup', element.functionName);
                 document.body.appendChild(el);
     
-                let newPopup = new Popup(element, element.functionName, element.html);
-                // newPopup.addStyleCSS();
+                let newPopup = new Popup(element, element.functionName, element.html, element.css);
                 newPopup.show();
             }
         }

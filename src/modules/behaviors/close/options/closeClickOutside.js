@@ -22,34 +22,15 @@ const closeClickOutside = (config, keyPopup) => {
             }
         }
 
-        // let elements = document.querySelectorAll(".closeClickOutside");
-        // console.log(elements);
-        // elements.forEach((element, key) => {
-        //     document.addEventListener("click", (e) => {
-        //         console.log(e.target);
-        //         if (!element.classList.contains("active")) { // Nếu không chứa 
-        //             return;
-        //         } else {
-        //             if(e.target != document.querySelector(".btn" + keyPopup)) { // Nếu không click vô nút mở nó
-        //                 if(findCloseClickOutsideParent(e) == true) {
-        //                     return;
-        //                 } else if(findCloseClickOutsideParent(e) == null) {
-        //                     element.classList.remove("active");
-        //                 }
-        //             }
-        //         }
-        //     });
-        // });
-
         let element = document.querySelector(`.${keyPopup}`);
         element = element.children[0];
         document.addEventListener("click", (e) => {
-            console.log(!element.classList.contains("active")); //f
-            if (!element.classList.contains("active")) { // Nếu không chứa
+            console.log(!element.classList.contains("active")); 
+            if (!element.classList.contains("active")) { 
                 return;
             } else {
                 console.log(e.target != document.querySelector(".btn" + keyPopup));
-                if(e.target != document.querySelector(".btn" + keyPopup)) { // Nếu không click vô nút mở nó
+                if(e.target != document.querySelector(".btn" + keyPopup)) { 
                     if(findCloseClickOutsideParent(e) == true) {
                         console.log(e.target);
                         return;
