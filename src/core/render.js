@@ -21,12 +21,6 @@ class RenderPopup {
 
         popup.style.setProperty("position", `fixed`, "important");
 
-        // let link = document.createElement('link');
-        // link.rel = 'stylesheet';
-        // link.type = 'text/css';
-        // link.href = 'http://localhost:5500/src/core/core.css'
-        // document.head.appendChild(link);
-
         let styleTag = document.createElement("style");
         document.head.appendChild(styleTag);
         let cssStyles = this.styleCss;

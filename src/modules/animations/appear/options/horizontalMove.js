@@ -23,7 +23,6 @@ const horizontalMove = (config, keyPopup) => {
                         };
 
                         popupElement.animate(popupSliding, timing);
-                        //popupElement.style.setProperty("display", `block`, "important");
                     }
                 }
             });

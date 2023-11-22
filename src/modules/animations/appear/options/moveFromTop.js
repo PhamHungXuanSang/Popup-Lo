@@ -27,10 +27,6 @@ const moveFromTop = (config, keyPopup) => {
                 }
             });
         });
-    
-        // observer.observe(popupElement, {
-        //     attributes: true,
-        // });
         observer.observe(popupElement, {
             attributes: true,
         });
