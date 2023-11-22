@@ -7,12 +7,9 @@ const scrollToXPercent = (config, keyPopup) => {
 
     function activeScollPage() {
         const currentScrollPosition = window.scrollY;
-        console.log("Giá trị đã cuộn: "+currentScrollPosition);
         const totalHeightOfPage = document.body.scrollHeight - window.innerHeight;
-        console.log("Chiều cao page: "+totalHeightOfPage);
 
         let checkedScroll = sessionStorage.getItem(keyPopup);
-        console.log((config.percent / 100) * totalHeightOfPage);
 
         if (currentScrollPosition >= (config.percent / 100) * totalHeightOfPage && checkedScroll === null) {
             const ekeyPopup = document.querySelector(`.${keyPopup}`);

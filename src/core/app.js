@@ -11,7 +11,6 @@ export function readConfig(listConfig) {
             document.body.appendChild(el);
 
             let newPopup = new Popup(element, element.functionName, element.html);
-            // newPopup.addStyleCSS();
             newPopup.show();
         }
     });

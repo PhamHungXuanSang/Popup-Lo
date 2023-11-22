@@ -35,7 +35,6 @@ const moveToTop = (config, keyPopup) => {
                         async function wait() {
                             let flat = await Animation();
                             if (flat == true) {
-                                //console.log("2");
                                 popupElement.style.setProperty("display", "none");
                             }
                         }
