@@ -25,14 +25,11 @@ const closeClickOutside = (config, keyPopup) => {
         let element = document.querySelector(`.${keyPopup}`);
         element = element.children[0];
         document.addEventListener("click", (e) => {
-            console.log(!element.classList.contains("active")); 
-            if (!element.classList.contains("active")) { 
+            if (!element.classList.contains("active")) { // Nếu không chứa
                 return;
             } else {
-                console.log(e.target != document.querySelector(".btn" + keyPopup));
-                if(e.target != document.querySelector(".btn" + keyPopup)) { 
+                if(e.target != document.querySelector(".btn" + keyPopup)) { // Nếu không click vô nút mở nó
                     if(findCloseClickOutsideParent(e) == true) {
-                        console.log(e.target);
                         return;
                     } else if(findCloseClickOutsideParent(e) == null) {
                         element.classList.remove("active");
